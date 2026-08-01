@@ -318,7 +318,9 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
 
 /* ---------- mobile call bar ---------- */
 .callbar{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr;
-  gap:1px; background:var(--line); border-top:1px solid var(--line)}
+  gap:1px; background:var(--line); border-top:1px solid var(--line); transition:transform .22s ease}
+/* 스크롤 내리는 동안 내려가고, 올리면 다시 올라온다 (site.js) */
+.callbar[data-hidden]{transform:translateY(100%)}
 @media(min-width:760px){ .callbar{display:none} }
 /* 고정 바가 전화를 담당하므로 히어로 CTA 버튼은 모바일에서 숨긴다 — 같은 역할 중복 방지.
    facts 카드도 모바일에서는 숨긴다(2026-08-01) — 사진을 가리는 게 더 손해고,
