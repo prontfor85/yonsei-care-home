@@ -4,7 +4,7 @@
 :root{
   /* 로고 원본(assets/logo.svg)에서 그대로 뽑은 값. 로고를 그릴 때만 쓴다 */
   --brand-blue:#3d7fbd; --brand-green:#4d9746; --brand-orange:#d36b2e;
-  --logo-navy:#1d336c;   /* 로고 네이비. 다크 테마에서만 밝은 값으로 바뀐다 */
+  --logo-navy:#1d336c;   /* 로고 네이비 (글자용) */
 
   --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
   --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
@@ -22,39 +22,6 @@
               "Apple SD Gothic Neo","Noto Sans KR","Spoqa Han Sans Neo","Malgun Gothic","맑은 고딕",sans-serif;
   --wrap:1100px;
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --logo-navy:#C9D6EC;
-    --bg:#111419; --surface:#191D25; --surface-2:#212632;
-    --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
-    --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
-    --accent:#7FBE76; --accent-soft:#19241A;
-    --on-primary:#0B1220;
-    --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
-    --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
-  }
-}
-:root[data-theme="dark"]{
-  --logo-navy:#C9D6EC;
-  --bg:#111419; --surface:#191D25; --surface-2:#212632;
-  --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
-  --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
-  --accent:#7FBE76; --accent-soft:#19241A;
-  --on-primary:#0B1220;
-  --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
-  --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
-}
-:root[data-theme="light"]{
-  --logo-navy:#1d336c;
-  --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
-  --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
-  --primary:#1d336c; --primary-strong:#142449; --primary-soft:#E7ECF5;
-  --accent:#3B7335; --accent-soft:#E9F1E8;
-  --on-primary:#FFFFFF;
-  --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
-  --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
-}
-
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
@@ -68,16 +35,6 @@ img,svg{max-width:100%}
 :focus-visible{outline:3px solid var(--primary); outline-offset:2px; border-radius:4px}
 .wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:20px}
 
-/* ---------- prototype notice ---------- */
-.proto{
-  background:var(--accent-soft); color:var(--accent);
-  font-size:.78rem; letter-spacing:.04em; text-align:center;
-  padding:7px 20px; border-bottom:1px solid var(--line);
-}
-/* 모바일에서 두 줄을 차지해 첫 화면을 밀어내므로 짧은 문구로 바꾼다 */
-.proto .long{display:none}
-@media(min-width:620px){ .proto .long{display:inline} .proto .short{display:none} }
-
 /* ---------- skip ---------- */
 .skip{position:absolute; left:-9999px; top:0; background:var(--primary); color:var(--on-primary); padding:10px 16px; z-index:200}
 .skip:focus{left:8px; top:8px}
@@ -87,9 +44,6 @@ header{position:sticky; top:0; z-index:100; background:var(--surface); border-bo
 .util{border-bottom:1px solid var(--line); background:var(--surface-2)}
 .util .wrap{display:flex; justify-content:flex-end; align-items:center; gap:18px; font-size:.82rem; color:var(--ink-2); min-height:38px}
 .util b{color:var(--ink); font-variant-numeric:tabular-nums}
-.themebtn{background:none; border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:.8rem;
-  padding:2px 10px; border-radius:99px; cursor:pointer}
-.themebtn:hover{color:var(--ink); border-color:var(--primary)}
 /* 태블릿 구간(하단 전화바가 사라지고 헤더 전화버튼은 아직 안 나오는 폭)에서 대표전화를 유지한다 */
 .utel{display:none; text-decoration:none; color:var(--ink-2); font-variant-numeric:tabular-nums}
 .utel b{color:var(--primary-strong)}
@@ -106,7 +60,6 @@ header{position:sticky; top:0; z-index:100; background:var(--surface); border-bo
 .logo .l-blue{fill:var(--brand-blue)}
 .logo .l-green{fill:var(--brand-green)}
 .logo .l-orange{fill:var(--brand-orange)}
-/* 글자만 테마를 탄다. 다크 배경에서 원본 네이비는 그대로 두면 묻는다 */
 .logo .l-navy{fill:var(--logo-navy)}
 
 nav.main{display:none}
@@ -344,10 +297,10 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
 
 /* ---------- mobile call bar ---------- */
 .callbar{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr;
-  gap:1px; background:var(--line); border-top:1px solid var(--line); transition:transform .22s ease}
-/* 홈 히어로의 전화 CTA가 화면에 있는 동안에는 내려가 있는다. 같은 역할이 두 개 겹치지 않게. */
-.callbar[data-hidden]{transform:translateY(100%)}
+  gap:1px; background:var(--line); border-top:1px solid var(--line)}
 @media(min-width:760px){ .callbar{display:none} }
+/* 고정 바가 전화를 담당하므로 히어로 CTA 버튼은 모바일에서 숨긴다 — 같은 역할 중복 방지 */
+@media(max-width:759px){ .hero .btns{display:none} }
 .callbar a{background:var(--surface); color:var(--ink); text-decoration:none; text-align:center;
   padding:14px 8px; font-weight:700; font-size:.95rem}
 .callbar a.p{background:var(--primary); color:var(--on-primary)}

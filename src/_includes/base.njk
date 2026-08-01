@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title %}{{ title }} · {% endif %}연세노인전문요양원</title>
 <meta name="description" content="{{ description or "전북 김제 용지면에 있는 정원 25명의 소규모 노인요양시설입니다. 입소 상담 063-542-2737 · 연중무휴 운영 · 면회 09:00–12:00 / 13:00–17:00" }}">
-<meta name="theme-color" content="#1d336c" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#111419" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#1d336c">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="연세노인전문요양원">
 <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}연세노인전문요양원">
 <meta property="og:description" content="전북 김제 용지면, 정원 25명의 소규모 노인요양시설. 입소 상담 063-542-2737">
-<script>try{var _t=localStorage.getItem('ysc-theme');if(_t)document.documentElement.setAttribute('data-theme',_t)}catch(e){}</script>
 <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
@@ -23,15 +21,12 @@
 
 <a class="skip" href="#main">본문 바로가기</a>
 
-<div class="proto"><span class="long">준비 중인 홈페이지입니다 · 사진과 일부 문구는 예시이며 실제 자료로 교체 예정입니다</span><span class="short">사진과 일부 문구는 예시입니다</span></div>
-
 <header>
   <div class="util">
     <div class="wrap">
       <span>연중무휴 운영</span>
       <span class="vis">면회 <b>09:00–12:00 / 13:00–17:00</b></span>
       <a class="utel" href="tel:0635422737">상담 <b>063-542-2737</b></a>
-      <button class="themebtn" id="themebtn" type="button" aria-live="polite">어둡게 보기</button>
     </div>
   </div>
   <div class="wrap bar">
@@ -150,9 +145,8 @@
   </div>
 </footer>
 
-{# 홈에서는 히어로의 전화 CTA와 역할이 겹치므로 내려간 상태로 시작한다(JS가 스크롤에 따라 올린다).
-   나머지 페이지는 처음부터 띄운다. #}
-<div class="callbar"{% if hero %} data-hidden{% endif %}>
+{# 모바일 전용 고정 바. 히어로 CTA 버튼은 모바일에서 숨기므로 항상 떠 있다. #}
+<div class="callbar">
   <a href="tel:0635422737" class="p">전화 상담</a>
   <a href="/about/map/">오시는 길</a>
 </div>
