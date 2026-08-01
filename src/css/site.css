@@ -41,16 +41,6 @@ img,svg{max-width:100%}
 
 /* ---------- header ---------- */
 header{position:sticky; top:0; z-index:100; background:var(--surface); border-bottom:1px solid var(--line)}
-.util{border-bottom:1px solid var(--line); background:var(--surface-2)}
-.util .wrap{display:flex; justify-content:flex-end; align-items:center; gap:18px; font-size:.82rem; color:var(--ink-2); min-height:38px}
-.util b{color:var(--ink); font-variant-numeric:tabular-nums}
-/* 태블릿 구간(하단 전화바가 사라지고 헤더 전화버튼은 아직 안 나오는 폭)에서 대표전화를 유지한다 */
-.utel{display:none; text-decoration:none; color:var(--ink-2); font-variant-numeric:tabular-nums}
-.utel b{color:var(--primary-strong)}
-.utel:hover b{text-decoration:underline}
-@media(min-width:760px) and (max-width:1179px){ .utel{display:inline} }
-/* 좁은 화면에서는 면회시간 두 줄이 util 바를 밀어내므로 접는다 */
-@media(max-width:559px){ .util .wrap{justify-content:space-between} .util .vis{display:none} }
 
 .bar{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:74px}
 .brand{display:flex; align-items:center; text-decoration:none; flex-shrink:0}
@@ -89,7 +79,8 @@ nav.main li:hover > .drop, nav.main li:focus-within > .drop{opacity:1; visibilit
   white-space:nowrap;
 }
 .callbtn:hover{background:var(--primary-strong)}
-@media(min-width:1180px){ .callbtn{display:inline-flex} }
+/* 하단 전화바가 없는 760px 이상에서 항상 노출 — util 바(.utel) 삭제 후 유일한 헤더 전화 */
+@media(min-width:760px){ .callbtn{display:inline-flex} }
 
 .burger{display:flex; align-items:center; gap:8px; background:none; border:1px solid var(--line);
   color:var(--ink); font:inherit; font-size:.9rem; font-weight:600; padding:9px 14px; border-radius:8px; cursor:pointer}
