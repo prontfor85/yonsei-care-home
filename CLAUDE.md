@@ -32,13 +32,19 @@
 - 정적 사이트라 게시글 **조회수 없음** — 게시판 표에서 조회 열을 뺐다
 - 문의는 전화 우선(성공 지표와 일치). 후원 폼은 아직 데모(`data-demo`)
 
-### 배포 전 남은 작업 (7단계)
+### 배포 계획 (2026-08-01 변경: 2단계로)
 
-1. GitHub 저장소 생성 · push
-2. Cloudflare Pages 연결 + GitHub OAuth 프록시 Worker 배포
-3. `src/admin/config.yml` 의 `TODO` 세 곳(repo, base_url, site_url) 실제 값으로 교체
-4. 도메인 구매 · 연결 (고객이 결제 의사 확인함, 이름 미정)
-5. 개인정보처리방침 게시 (후원 폼 연동 시)
+**1차 — 무료 URL로 의뢰인 검수용 공개 (고객 지시).** GitHub Pages 를 쓴다.
+`.github/workflows/deploy.yml` 이 push 마다 빌드·배포하고 Pages 활성화까지 자동
+(`configure-pages` 의 `enablement: true`). GitHub Pages 는 `/저장소명/` 하위 경로라
+워크플로가 `PATH_PREFIX` 를 넣고, `EleventyHtmlBasePlugin` 이 절대 경로를 고쳐 쓴다.
+**무료 Pages 는 공개 저장소여야 한다.** 남은 것: 사용자가 `gh auth login` 후 저장소
+생성·push (인증만 사용자 몫, 이후 단계는 실행 가능).
+
+**2차 — 도메인 결제 후 정식 전환.** Cloudflare Pages 연결(접두사 불필요, PATH_PREFIX
+미설정이면 루트로 빌드됨) + GitHub OAuth 프록시 Worker 배포 +
+`src/admin/config.yml` 의 `TODO` 세 곳(repo, base_url, site_url) 교체 + 도메인 연결.
+관리자 페이지 로그인은 2차에서야 동작한다. 개인정보처리방침은 후원 폼 연동 시 게시.
 
 ## 파일
 
