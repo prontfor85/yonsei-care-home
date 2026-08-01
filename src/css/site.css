@@ -354,11 +354,12 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
 .hero-scrim{position:absolute; inset:0}
 @media(max-width:899px){
   .hero-bg{object-position:center bottom}
+  /* facts 카드 제거로 히어로가 567px 로 낮아져 글자 끝 지점이 55% 로 내려왔다 — stop 도 같이 */
   .hero-scrim{background:linear-gradient(180deg,
     var(--surface-2) 0%,
-    color-mix(in srgb, var(--surface-2) 94%, transparent) 42%,
-    color-mix(in srgb, var(--surface-2) 55%, transparent) 68%,
-    transparent 94%)}
+    color-mix(in srgb, var(--surface-2) 94%, transparent) 55%,
+    color-mix(in srgb, var(--surface-2) 50%, transparent) 76%,
+    transparent 96%)}
   /* CTA 아래로 사진이 온전히 드러나는 영역을 확보한다 */
   .hero.has-bg .herogrid{padding-bottom:220px}
 }
