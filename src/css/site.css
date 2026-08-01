@@ -404,4 +404,24 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   .facts dd{font-size:1.06rem}
 }
 
+/* ===== 히어로 풀블리드 (2026-08-01 확정) =====
+   데스크톱에서 사진이 히어로 전체 배경으로 깔리고, 왼쪽 텍스트 구간은
+   --surface-2 기반 그라데이션이 덮는다(라이트/다크 테마 자동 성립).
+   모바일(<900px)에서는 기존 박스형 사진을 유지한다 — 전체 배경으로 깔면
+   글 전체에 강한 스크림이 필요해 사진이 안 보이고, 첫 화면 세로 예산도 깨진다.
+   사진은 가로로 긴, 주요 피사체가 오른쪽에 있는 이미지를 전제로 한다. */
+.hero .hero-bg, .hero .hero-scrim{display:none}
+@media(min-width:900px){
+  .hero[data-hero] .hero-bg{display:block; position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:72% center}
+  .hero[data-hero] .heroshot{display:none}
+  .hero[data-hero] .herogrid{min-height:330px; align-content:center}
+  .hero[data-hero] .hero-scrim{display:block; position:absolute; inset:0;
+    background:linear-gradient(90deg,
+      var(--surface-2) 0%,
+      color-mix(in srgb, var(--surface-2) 96%, transparent) 40%,
+      color-mix(in srgb, var(--surface-2) 55%, transparent) 64%,
+      transparent 90%)}
+}
+
 @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
