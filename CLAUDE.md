@@ -43,8 +43,9 @@
 배포 과정에서 배운 것: GitHub Desktop 퍼블리시는 기본이 비공개고(무료 Pages 는 공개
 필수 — 웹 Danger Zone에서 전환), `configure-pages` 의 `enablement: true` 는 기본
 토큰 권한으로 실패한다 — **Pages 소스는 Settings → Pages 에서 수동으로 "GitHub
-Actions" 를 한 번 선택해야 했다.** 이 Mac 의 커맨드라인 git 에는 GitHub 인증이 없어
-push 는 GitHub Desktop 으로 한다(커밋은 로컬에서 만들고 사용자가 Push origin 클릭).
+Actions" 를 한 번 선택해야 했다.** push 는 커맨드라인에서 바로 된다 — gh CLI 를
+`~/bin/gh` 에 설치(PATH 에 없음, 전체 경로로 호출)하고 사용자가 로그인해 둬서
+git credential helper 가 연결돼 있다. GitHub Desktop 도 설치돼 있다(같은 계정).
 
 **2차 — 도메인 결제 후 정식 전환.** Cloudflare Pages 연결(접두사 불필요, PATH_PREFIX
 미설정이면 루트로 빌드됨) + GitHub OAuth 프록시 Worker 배포 +
