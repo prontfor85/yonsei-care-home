@@ -357,11 +357,13 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   /* 히어로 총높이 약 700px 기준(2026-08-01 사용자 요청으로 567→700 확대).
      글자가 끝나는 지점이 약 44% 라 stop 을 거기에 맞춘다. 사진 노출 영역을 바꾸면
      (아래 padding-bottom) 이 stop 도 같이 볼 것. */
+  /* 이미지가 더 보이게 조정(2026-08-01): 글자 끝(44%) 아래로는 빠르게 투명해진다.
+     전제 — 모바일용 이미지는 위쪽이 밝고 조용하게 제작됨(어드민 힌트 참조) */
   .hero-scrim{background:linear-gradient(180deg,
-    var(--surface-2) 0%,
-    color-mix(in srgb, var(--surface-2) 94%, transparent) 45%,
-    color-mix(in srgb, var(--surface-2) 50%, transparent) 70%,
-    transparent 95%)}
+    color-mix(in srgb, var(--surface-2) 96%, transparent) 0%,
+    color-mix(in srgb, var(--surface-2) 85%, transparent) 40%,
+    color-mix(in srgb, var(--surface-2) 30%, transparent) 58%,
+    transparent 78%)}
   /* 글 아래로 사진이 온전히 드러나는 영역 — 이 값이 모바일 히어로 높이를 결정한다 */
   .hero.has-bg .herogrid{padding-bottom:355px}
 }
