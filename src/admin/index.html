@@ -8,5 +8,14 @@
 </head>
 <body>
 <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<script>
+  // 글쓰기 화면의 미리보기에 실제 사이트 스타일을 입힌다.
+  // 경로가 상대인 이유: GitHub Pages(/저장소명/ 하위)와 도메인 연결 후 둘 다에서 동작해야 해서.
+  CMS.registerPreviewStyle("../css/site.css");
+  CMS.registerPreviewStyle(
+    "body{padding:28px;background:var(--bg);color:var(--ink)} img{max-width:100%;border-radius:10px}",
+    { raw: true }
+  );
+</script>
 </body>
 </html>

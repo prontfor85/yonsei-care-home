@@ -10,6 +10,8 @@ backend:
 
 locale: ko
 site_url: https://prontfor85.github.io/yonsei-care-home/
+# 로그인 화면에 표시할 로고. 상대 경로라 도메인이 바뀌어도 그대로 동작한다.
+logo_url: ../assets/logo.svg
 
 media_folder: src/uploads
 public_folder: /uploads
