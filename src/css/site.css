@@ -16,9 +16,10 @@
   --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
   --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
   --radius:10px;
-  --font-display:"Nanum Myeongjo","NanumMyeongjo","Noto Serif KR","Source Han Serif K",
+  /* 웹폰트를 1순위로 — 기기별 설치 여부와 무관하게 전 기기 동일 렌더링 (base.njk 에서 로드) */
+  --font-display:"Noto Serif KR","Nanum Myeongjo","Source Han Serif K",
                  "KoPubWorld Batang","AppleMyungjo","Batang","바탕",serif;
-  --font-body:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,
+  --font-body:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,
               "Apple SD Gothic Neo","Noto Sans KR","Spoqa Han Sans Neo","Malgun Gothic","맑은 고딕",sans-serif;
   --wrap:1100px;
 }

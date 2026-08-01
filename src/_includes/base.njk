@@ -11,6 +11,12 @@
 <meta property="og:site_name" content="연세노인전문요양원">
 <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}연세노인전문요양원">
 <meta property="og:description" content="전북 김제 용지면, 정원 25명의 소규모 노인요양시설. 입소 상담 063-542-2737">
+{# 웹폰트 — 기기 설치 폰트에 의존하면 휴대폰에서 명조가 고딕으로 대체된다.
+   제목: Noto Serif KR 700 (구글 폰트, 한글 subset 분할 제공) / 본문: Pretendard (jsDelivr) #}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
