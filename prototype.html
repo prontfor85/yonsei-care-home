@@ -1,0 +1,1325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연세노인전문요양원</title>
+<meta name="description" content="전북 김제 용지면에 있는 정원 25명의 소규모 노인요양시설입니다. 입소 상담 063-542-2737 · 연중무휴 운영 · 면회 09:00–12:00 / 13:00–17:00">
+<meta name="theme-color" content="#2F6248" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#141814" media="(prefers-color-scheme:dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="연세노인전문요양원">
+<meta property="og:title" content="연세노인전문요양원">
+<meta property="og:description" content="전북 김제 용지면, 정원 25명의 소규모 노인요양시설. 입소 상담 063-542-2737">
+<script>try{var _t=localStorage.getItem('ysc-theme');if(_t)document.documentElement.setAttribute('data-theme',_t)}catch(e){}</script>
+
+<style>
+/* 색은 시설 로고에서 뽑았다. 심볼의 파랑을 주색, 초록을 보조색으로 쓰고
+   본문 대비(4.5:1) 를 넘기도록 원색보다 어둡게 조정했다.
+   --brand-* 는 로고 원색으로, 로고를 그릴 때만 쓴다. */
+:root{
+  /* 로고 원본(assets/logo.svg)에서 그대로 뽑은 값. 로고를 그릴 때만 쓴다 */
+  --brand-blue:#3d7fbd; --brand-green:#4d9746; --brand-orange:#d36b2e;
+  --logo-navy:#1d336c;   /* 로고 네이비. 다크 테마에서만 밝은 값으로 바뀐다 */
+
+  --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
+  --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
+  /* 주색은 로고 네이비 그대로. 보조색은 로고 초록을 본문 대비 4.5:1 넘게 어둡게 조정한 값
+     (로고 초록 #4d9746 은 흰 배경에서 3.65:1 로 본문에 못 쓴다) */
+  --primary:#1d336c; --primary-strong:#142449; --primary-soft:#E7ECF5;
+  --accent:#3B7335; --accent-soft:#E9F1E8;
+  --on-primary:#FFFFFF;
+  --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
+  --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
+  --radius:10px;
+  --font-display:"Nanum Myeongjo","NanumMyeongjo","Noto Serif KR","Source Han Serif K",
+                 "KoPubWorld Batang","AppleMyungjo","Batang","바탕",serif;
+  --font-body:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,
+              "Apple SD Gothic Neo","Noto Sans KR","Spoqa Han Sans Neo","Malgun Gothic","맑은 고딕",sans-serif;
+  --wrap:1100px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --logo-navy:#C9D6EC;
+    --bg:#111419; --surface:#191D25; --surface-2:#212632;
+    --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
+    --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
+    --accent:#7FBE76; --accent-soft:#19241A;
+    --on-primary:#0B1220;
+    --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
+  }
+}
+:root[data-theme="dark"]{
+  --logo-navy:#C9D6EC;
+  --bg:#111419; --surface:#191D25; --surface-2:#212632;
+  --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
+  --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
+  --accent:#7FBE76; --accent-soft:#19241A;
+  --on-primary:#0B1220;
+  --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
+}
+:root[data-theme="light"]{
+  --logo-navy:#1d336c;
+  --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
+  --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
+  --primary:#1d336c; --primary-strong:#142449; --primary-soft:#E7ECF5;
+  --accent:#3B7335; --accent-soft:#E9F1E8;
+  --on-primary:#FFFFFF;
+  --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
+  --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-body); font-size:18px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,p,li,td,th,dd,summary,figcaption,label{word-break:keep-all; overflow-wrap:break-word}
+h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; line-height:1.35; text-wrap:balance; margin:0}
+a{color:inherit}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--primary); outline-offset:2px; border-radius:4px}
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:20px}
+
+/* ---------- prototype notice ---------- */
+.proto{
+  background:var(--accent-soft); color:var(--accent);
+  font-size:.78rem; letter-spacing:.04em; text-align:center;
+  padding:7px 20px; border-bottom:1px solid var(--line);
+}
+/* 모바일에서 두 줄을 차지해 첫 화면을 밀어내므로 짧은 문구로 바꾼다 */
+.proto .long{display:none}
+@media(min-width:620px){ .proto .long{display:inline} .proto .short{display:none} }
+
+/* ---------- skip ---------- */
+.skip{position:absolute; left:-9999px; top:0; background:var(--primary); color:var(--on-primary); padding:10px 16px; z-index:200}
+.skip:focus{left:8px; top:8px}
+
+/* ---------- header ---------- */
+header{position:sticky; top:0; z-index:100; background:var(--surface); border-bottom:1px solid var(--line)}
+.util{border-bottom:1px solid var(--line); background:var(--surface-2)}
+.util .wrap{display:flex; justify-content:flex-end; align-items:center; gap:18px; font-size:.82rem; color:var(--ink-2); min-height:38px}
+.util b{color:var(--ink); font-variant-numeric:tabular-nums}
+.themebtn{background:none; border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:.8rem;
+  padding:2px 10px; border-radius:99px; cursor:pointer}
+.themebtn:hover{color:var(--ink); border-color:var(--primary)}
+/* 태블릿 구간(하단 전화바가 사라지고 헤더 전화버튼은 아직 안 나오는 폭)에서 대표전화를 유지한다 */
+.utel{display:none; text-decoration:none; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.utel b{color:var(--primary-strong)}
+.utel:hover b{text-decoration:underline}
+@media(min-width:760px) and (max-width:1179px){ .utel{display:inline} }
+/* 좁은 화면에서는 면회시간 두 줄이 util 바를 밀어내므로 접는다 */
+@media(max-width:559px){ .util .wrap{justify-content:space-between} .util .vis{display:none} }
+
+.bar{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:74px}
+.brand{display:flex; align-items:center; text-decoration:none; flex-shrink:0}
+/* viewBox를 원본 여백 없이 콘텐츠에 맞춰 잘라 뒀다(가로세로비 5.497). 높이만 정하면 된다 */
+.brand .logo{display:block; height:40px; width:auto}
+@media(max-width:620px){ .brand .logo{height:33px} }
+.logo .l-blue{fill:var(--brand-blue)}
+.logo .l-green{fill:var(--brand-green)}
+.logo .l-orange{fill:var(--brand-orange)}
+/* 글자만 테마를 탄다. 다크 배경에서 원본 네이비는 그대로 두면 묻는다 */
+.logo .l-navy{fill:var(--logo-navy)}
+
+nav.main{display:none}
+@media(min-width:1000px){ nav.main{display:block} }
+nav.main > ul{display:flex; gap:4px; list-style:none; margin:0; padding:0}
+nav.main > ul > li{position:relative}
+nav.main > ul > li > a{
+  display:block; padding:12px 17px; text-decoration:none; font-weight:600; font-size:1rem;
+  border-radius:var(--radius); white-space:nowrap;
+}
+nav.main > ul > li > a:hover{background:var(--primary-soft); color:var(--primary-strong)}
+nav.main > ul > li.on > a{color:var(--primary-strong)}
+nav.main > ul > li.on > a::after{content:""; display:block; height:2px; background:var(--primary); margin-top:6px; border-radius:2px}
+.drop{
+  position:absolute; top:100%; left:0; min-width:190px; list-style:none; margin:0; padding:8px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+  opacity:0; visibility:hidden; transform:translateY(-6px); transition:.16s ease;
+}
+nav.main li:hover > .drop, nav.main li:focus-within > .drop{opacity:1; visibility:visible; transform:none}
+.drop a{display:block; padding:9px 13px; text-decoration:none; font-size:.94rem; border-radius:6px; color:var(--ink-2)}
+.drop a:hover{background:var(--primary-soft); color:var(--primary-strong)}
+.drop a[aria-current]{color:var(--primary-strong); font-weight:600}
+
+.callbtn{
+  display:none; align-items:center; gap:8px; background:var(--primary); color:var(--on-primary);
+  text-decoration:none; padding:11px 19px; border-radius:99px; font-weight:700; font-size:.95rem;
+  white-space:nowrap;
+}
+.callbtn:hover{background:var(--primary-strong)}
+@media(min-width:1180px){ .callbtn{display:inline-flex} }
+
+.burger{display:flex; align-items:center; gap:8px; background:none; border:1px solid var(--line);
+  color:var(--ink); font:inherit; font-size:.9rem; font-weight:600; padding:9px 14px; border-radius:8px; cursor:pointer}
+@media(min-width:1000px){ .burger{display:none} }
+
+/* ---------- drawer ---------- */
+.drawer{position:fixed; inset:0; z-index:150; background:rgba(20,24,20,.5); display:none}
+.drawer[data-open]{display:block}
+.drawer .panel{
+  position:absolute; right:0; top:0; bottom:0; width:min(340px,88vw); background:var(--surface);
+  overflow-y:auto; padding:18px 20px 40px; border-left:1px solid var(--line);
+}
+.drawer h3{font-family:var(--font-body); font-size:.72rem; letter-spacing:.14em; color:var(--accent);
+  margin:26px 0 8px; font-weight:700}
+.drawer a{display:block; padding:11px 12px; text-decoration:none; border-radius:8px; font-size:1rem}
+.drawer a:hover{background:var(--surface-2)}
+.drawer a[aria-current]{background:var(--primary-soft); color:var(--primary-strong); font-weight:700}
+.drawer .close{float:right; background:none; border:1px solid var(--line); color:var(--ink);
+  font:inherit; padding:7px 13px; border-radius:8px; cursor:pointer}
+
+/* ---------- page header ---------- */
+.phead{background:var(--surface-2); border-bottom:1px solid var(--line); padding:44px 0 40px}
+.phead .crumb{font-size:.82rem; color:var(--ink-2); margin-bottom:10px}
+.phead .crumb span{color:var(--primary-strong); font-weight:600}
+.phead h1{font-size:clamp(1.8rem,4vw,2.5rem)}
+.phead p{margin:12px 0 0; color:var(--ink-2); max-width:60ch}
+
+/* ---------- generic layout ---------- */
+main{min-height:60vh}
+section.view{display:none}
+section.view.active{display:block}
+.body{padding-block:56px 80px; display:flex; flex-direction:column; gap:52px}
+.block{display:flex; flex-direction:column; gap:20px}
+.block > h2{font-size:1.5rem}
+.eyebrow{font-size:.74rem; letter-spacing:.15em; color:var(--accent); font-weight:700; font-family:var(--font-body)}
+.lead{font-size:1.12rem; color:var(--ink-2); max-width:62ch}
+p{margin:0}
+.prose{display:flex; flex-direction:column; gap:16px; max-width:66ch}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+.card h3{font-size:1.14rem; margin-bottom:8px}
+.card p{color:var(--ink-2); font-size:.97rem}
+
+ul.ticks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px}
+ul.ticks li{padding-left:29px; position:relative; color:var(--ink-2)}
+ul.ticks li::before{content:""; position:absolute; left:4px; top:.72em; width:9px; height:9px;
+  border-radius:2px; background:var(--primary); transform:rotate(45deg)}
+ul.ticks li b{color:var(--ink)}
+
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:.95rem}
+th,td{padding:13px 16px; text-align:left; border-bottom:1px solid var(--line)}
+thead th{background:var(--surface-2); font-size:.85rem; letter-spacing:.03em; color:var(--ink-2); font-weight:700}
+tbody tr:last-child td, tbody tr:last-child th{border-bottom:none}
+td.num,th.num{font-variant-numeric:tabular-nums; text-align:right}
+tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92rem}
+
+.note{background:var(--accent-soft); border-left:3px solid var(--accent); padding:16px 20px;
+  border-radius:0 8px 8px 0; font-size:.93rem; color:var(--ink-2)}
+.note b{color:var(--ink)}
+.tbd{border:1px dashed var(--accent); border-radius:8px; padding:14px 18px; font-size:.88rem; color:var(--accent)}
+
+.btn{display:inline-flex; align-items:center; gap:8px; background:var(--primary); color:var(--on-primary);
+  text-decoration:none; padding:14px 26px; border-radius:99px; font-weight:700; font-size:1rem;
+  border:none; cursor:pointer; font-family:inherit}
+.btn:hover{background:var(--primary-strong)}
+.btn.ghost{background:transparent; color:var(--primary-strong); border:1.5px solid var(--primary)}
+.btn.ghost:hover{background:var(--primary-soft)}
+.btns{display:flex; flex-wrap:wrap; gap:12px}
+
+/* ---------- hero ---------- */
+.hero{position:relative; background:var(--surface-2); overflow:hidden; border-bottom:1px solid var(--line)}
+.hero .art{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero .wrap{position:relative; padding-block:64px 76px; display:flex; flex-direction:column; gap:34px}
+.hero h1{font-size:clamp(1.85rem,4.4vw,2.95rem); max-width:24ch}
+.hero .lead{font-size:1.14rem; max-width:44ch; color:var(--ink-2)}
+.hero .tag{font-size:.76rem; letter-spacing:.18em; font-weight:700; color:var(--accent)}
+
+.herogrid{display:grid; gap:22px; align-content:start}
+.heroshot{margin:0}
+.heroshot .ph{aspect-ratio:4/3; border-radius:14px; box-shadow:var(--shadow)}
+@media(min-width:900px){
+  .herogrid{
+    grid-template-columns:1.05fr .95fr; column-gap:48px;
+    grid-template-areas:"tag shot" "title shot" "lead shot" "btns shot";
+    align-content:center;
+  }
+  .herogrid > .tag{grid-area:tag}
+  .herogrid > h1{grid-area:title}
+  .herogrid > .lead{grid-area:lead}
+  .herogrid > .btns{grid-area:btns}
+  .heroshot{grid-area:shot; align-self:center}
+}
+
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:8px}
+.facts div{background:var(--surface); padding:20px 22px}
+.facts dt{font-size:.74rem; letter-spacing:.12em; color:var(--accent); font-weight:700; margin-bottom:6px}
+.facts dd{margin:0; font-size:1.14rem; font-weight:700; font-variant-numeric:tabular-nums; line-height:1.5}
+.facts dd small{display:block; font-size:.82rem; font-weight:400; color:var(--ink-2)}
+
+/* ---------- steps ---------- */
+ol.steps{list-style:none; counter-reset:s; margin:0; padding:0; display:flex; flex-direction:column; gap:14px}
+ol.steps li{counter-increment:s; display:flex; gap:18px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px}
+ol.steps li::before{content:counter(s); flex-shrink:0; width:34px; height:34px; border-radius:50%;
+  background:var(--primary); color:var(--on-primary); display:grid; place-items:center;
+  font-weight:700; font-size:.95rem; font-variant-numeric:tabular-nums}
+ol.steps h3{font-size:1.05rem; margin-bottom:4px}
+ol.steps p{color:var(--ink-2); font-size:.95rem}
+
+/* ---------- org chart ---------- */
+.org{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0}
+.org .box{background:var(--surface); border:1.5px solid var(--primary); color:var(--primary-strong);
+  border-radius:8px; padding:12px 26px; font-weight:700; text-align:center; font-size:1rem}
+.org .box.sub{border-color:var(--line); color:var(--ink); font-weight:600; font-size:.95rem; padding:11px 18px}
+.org .rail{width:2px; height:26px; background:var(--line)}
+.org .row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding-top:0}
+.org .col{display:flex; flex-direction:column; align-items:center}
+.org .cross{height:2px; background:var(--line); width:min(680px,92%); margin-bottom:0}
+
+/* ---------- photo placeholder ---------- */
+.ph{aspect-ratio:4/3; border-radius:var(--radius); border:1px dashed var(--line);
+  background:
+    repeating-linear-gradient(45deg,transparent,transparent 9px,var(--surface-2) 9px,var(--surface-2) 18px),
+    var(--surface);
+  display:grid; place-items:center; color:var(--ink-2); font-size:.85rem; text-align:center; padding:12px}
+.ph.wide{aspect-ratio:16/9}
+
+/* ---------- board ---------- */
+.boardtop{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center}
+.boardtop .count{font-size:.9rem; color:var(--ink-2)}
+.boardtop .count b{color:var(--primary-strong); font-variant-numeric:tabular-nums}
+table.board td:first-child{color:var(--ink-2); font-variant-numeric:tabular-nums; width:70px}
+table.board a{text-decoration:none; font-weight:600}
+table.board a:hover{color:var(--primary-strong); text-decoration:underline}
+.pill{display:inline-block; background:var(--primary-soft); color:var(--primary-strong);
+  font-size:.74rem; font-weight:700; padding:2px 9px; border-radius:99px; margin-right:8px; vertical-align:2px}
+.pager{display:flex; gap:6px; justify-content:center; margin-top:8px}
+.pager a{width:36px; height:36px; display:grid; place-items:center; border:1px solid var(--line);
+  border-radius:7px; text-decoration:none; font-size:.9rem; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.pager a[aria-current]{background:var(--primary); border-color:var(--primary); color:var(--on-primary); font-weight:700}
+
+.evcard{display:flex; flex-direction:column; gap:0; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+.evcard .ph{border:none; border-radius:0}
+.evcard .txt{padding:18px 20px 22px; display:flex; flex-direction:column; gap:7px}
+.evcard time{font-size:.8rem; color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums}
+.evcard h3{font-size:1.05rem}
+.evcard p{color:var(--ink-2); font-size:.93rem}
+
+.gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px}
+.gallery figure{margin:0}
+.gallery figcaption{font-size:.85rem; color:var(--ink-2); padding-top:8px}
+
+/* ---------- faq ---------- */
+details.faq{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:0}
+details.faq + details.faq{margin-top:10px}
+details.faq summary{padding:18px 22px; cursor:pointer; font-weight:600; list-style:none; display:flex;
+  justify-content:space-between; gap:16px; align-items:center; font-size:1rem}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+"; color:var(--primary); font-size:1.3rem; font-weight:700; flex-shrink:0}
+details.faq[open] summary::after{content:"\2212"}
+details.faq .ans{padding:0 22px 20px; color:var(--ink-2); font-size:.96rem}
+
+/* ---------- form ---------- */
+.form{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.field{display:flex; flex-direction:column; gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.88rem; font-weight:600}
+input,select,textarea{font:inherit; font-size:1rem; padding:12px 14px; border:1px solid var(--line);
+  border-radius:8px; background:var(--surface); color:var(--ink); width:100%}
+textarea{min-height:120px; resize:vertical}
+.consent{display:flex; gap:10px; align-items:flex-start; font-size:.9rem; color:var(--ink-2)}
+.consent input{width:20px; height:20px; flex-shrink:0; margin-top:5px}
+
+/* ---------- CTA band ---------- */
+.cta{background:var(--cta-bg); color:var(--cta-ink); border-radius:var(--radius); padding:40px 34px;
+  display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between}
+.cta h2{font-size:1.5rem; color:var(--cta-ink)}
+.cta p{color:var(--cta-ink-dim); margin-top:8px; font-size:.98rem}
+.cta .tel{font-family:var(--font-display); font-size:2rem; font-weight:700; letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums; color:var(--cta-ink); text-decoration:none; display:block}
+.cta .tel:hover{text-decoration:underline}
+.cta .right{text-align:right}
+.cta .right small{color:var(--cta-ink-dim); font-size:.85rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--surface-2); border-top:1px solid var(--line); padding:48px 0 110px; margin-top:0}
+@media(min-width:760px){ footer{padding-bottom:48px} }
+.fgrid{display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+footer h4{font-family:var(--font-body); font-size:.74rem; letter-spacing:.14em; color:var(--accent); margin-bottom:12px}
+footer p,footer li{font-size:.92rem; color:var(--ink-2); line-height:1.85}
+footer ul{list-style:none; margin:0; padding:0}
+footer a{text-decoration:none}
+footer a:hover{color:var(--primary-strong); text-decoration:underline}
+.fbot{border-top:1px solid var(--line); margin-top:34px; padding-top:22px; font-size:.85rem; color:var(--ink-2);
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--line); border-top:1px solid var(--line); transition:transform .22s ease}
+/* 홈 히어로의 전화 CTA가 화면에 있는 동안에는 내려가 있는다. 같은 역할이 두 개 겹치지 않게. */
+.callbar[data-hidden]{transform:translateY(100%)}
+@media(min-width:760px){ .callbar{display:none} }
+.callbar a{background:var(--surface); color:var(--ink); text-decoration:none; text-align:center;
+  padding:14px 8px; font-weight:700; font-size:.95rem}
+.callbar a.p{background:var(--primary); color:var(--on-primary)}
+
+/* ---------- 모바일 보정 ---------- */
+/* 게시판 표는 좁은 화면에서 가로 스크롤 대신 카드로 쌓는다.
+   홈의 3열(구분·제목·날짜) 표와 게시판의 5열(번호·제목·작성자·날짜·조회) 표가
+   같은 규칙으로 정렬되도록 제목을 order:1로 끌어올린다. */
+@media(max-width:619px){
+  /* 표는 이제 전부 3열 이하다. 가로 스크롤 대신 화면 폭에 맞춰 접히게 둔다 */
+  table{min-width:0; font-size:.94rem}
+  th,td{padding:12px 13px}
+  tbody th{width:auto; min-width:5em}
+  .tablewrap.board-wrap{overflow:visible; border:none; border-radius:0; background:none}
+  table.board{min-width:0; display:block; font-size:1rem}
+  table.board thead{display:none}
+  table.board tbody{display:flex; flex-direction:column; gap:10px}
+  table.board tr{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:15px 17px}
+  table.board td{display:block; border:none; padding:0; width:auto; text-align:left}
+  table.board td:nth-child(2){order:1; flex:1 0 100%; font-size:1.02rem; line-height:1.5}
+  table.board td:nth-child(2) a{display:block}
+  /* 카드로 쌓이면 글 번호는 정보가 되지 못한다. 말머리(필독·공지 등)만 남긴다 */
+  table.board td:first-child{display:none}
+  table.board td:first-child:has(.pill){display:block; order:2; font-size:.84rem}
+  table.board td:nth-child(3){order:3; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(4){order:4; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(5){order:5; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(5)::before{content:"조회 "}
+  table.board .pill{margin-right:0}
+}
+/* 조직도: 가로 분기선은 넓은 화면에서만 의미가 있다 */
+@media(max-width:700px){
+  .org .cross{display:none}
+  .org .row{flex-direction:column; gap:0; width:100%}
+  .org .col{width:100%}
+  .org .box{width:100%}
+}
+@media(max-width:620px){
+  .cta{padding:30px 24px}
+  .cta .right{text-align:left}
+  .phead{padding:32px 0 30px}
+  .body{padding-block:40px 64px; gap:44px}
+  .hero .wrap{padding-block:30px 40px; gap:24px}
+  /* 제목·사진·설명·CTA 가 한 화면에 들어오도록 세로를 아낀다.
+     하단 고정 전화바(약 52px)가 화면 밑을 먹는 걸 감안한 값이다 */
+  .herogrid{gap:18px}
+  .heroshot .ph{aspect-ratio:16/9}
+  /* 하단 고정 바가 전화와 오시는 길을 이미 담당한다. 히어로에서 같은 걸 또 보여주면
+     첫 화면에 전화번호가 세 번 나온다. 고정 바가 못 담는 정보만 남긴다 */
+  .facts .f-tel, .facts .f-loc{display:none}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div{padding:15px 17px}
+  .facts dd{font-size:1.06rem}
+}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">본문 바로가기</a>
+
+<div class="proto"><span class="long">프로토타입 · 사진과 일부 문구는 예시이며 실제 자료로 교체 예정입니다</span><span class="short">프로토타입 · 사진과 문구는 예시입니다</span></div>
+
+<header>
+  <div class="util">
+    <div class="wrap">
+      <span>연중무휴 운영</span>
+      <span class="vis">면회 <b>09:00–12:00 / 13:00–17:00</b></span>
+      <a class="utel" href="tel:0635422737">상담 <b>063-542-2737</b></a>
+      <button class="themebtn" id="themebtn" type="button" aria-live="polite">어둡게 보기</button>
+    </div>
+  </div>
+  <div class="wrap bar">
+    <a class="brand" href="#/home" aria-label="연세노인전문요양원 홈으로">
+      <!-- assets/logo.svg 원본을 그대로 인라인했다. 테마에 따라 바뀌는 건 --logo-navy 뿐 -->
+      <svg class="logo" viewBox="14 66 1028 187" aria-hidden="true">
+        <g>
+        <path class="l-navy" d="M796.63,200.74h-105.5s-.19-12.48-.19-12.48l25.33-.03v-24.47c-6.21-5.34-9.78-12.78-10.08-21.02,1.22-20.72,19.29-30.79,39.04-30.62,14.45.13,27.06,4.25,35.12,16.42,7.03,11.63,4.91,26.06-5.72,34.88l-.05,24.81,23.53.02c3.29.92,4.9,3.58,4.63,6.71s-2.47,5.54-6.12,5.78ZM744.5,160.86c8.78.35,16.83-3.93,19.75-12.04,2.56-7.12.46-14.91-5.76-19.41-8.11-5.86-19.83-5.63-27.5,1.06-6.99,6.11-7.07,16.87-1.29,23.78,3.66,4.38,8.9,6.36,14.79,6.6ZM756.77,188.23l-.09-15.76c-8.02,1.67-14.98,1.87-22.46.14v15.65s22.55-.02,22.55-.02Z"/>
+        <path class="l-navy" d="M317.77,180.97c0,2.9-.52,5.22-2.28,6.82s-4.21,2.14-6.75,1.98c-4.32.31-8.44-2.48-8.46-7.02l-.05-16.99-25.03-.02c-11.64,11.54-31.75,12.82-45.79,5.44-10.68-5.61-16.79-16.38-15.08-28.52,1.34-9.53,7.73-17.63,16.47-21.87,13.99-6.78,32.7-5.15,43.94,5.95h25.49s.1-9.66.1-9.66l17.39-.04.2,19.19-.15,44.73ZM264.02,144.24c-.91-6.4-4.93-11.3-10.81-12.92-9.29-2.56-17.97,2.84-19.71,12.23s5.15,18.46,14.99,18.6c9.5.14,16.94-7.95,15.53-17.92ZM300.25,152.72l-.03-12.7-17.73-.09c.93,4.62,1,8.55.08,12.88l17.67-.09Z"/>
+        <path class="l-navy" d="M872.94,156.52c-12.83,13.53-38.96,13.59-52.24,2.22-4.6-3.94-7.85-9.51-8.73-15.65-1.54-10.72,4.45-20.66,13.74-25.9,14.57-8.21,35.44-6.53,46.99,5.46,9.3,9.65,9.42,24.19.24,33.87ZM855.66,150.91c5.05-3.91,6.3-10.11,4.38-16.02-1.63-5.02-6.55-8.88-12.52-9.49-4.51-.46-9.62.88-12.71,4.3-5.23,5.8-5.55,14.43-.08,20.12s14.59,5.99,20.92,1.09Z"/>
+        <path class="l-navy" d="M897.3,214.95c-12.8,11.2-39.18,10.55-50.4-3.36-7.62-9.45-6.23-22.9,2.73-30.99,5.74-5.19,12.84-7.86,20.58-8.55l7.14-.04c8.33.68,16.14,3.66,21.85,9.67,9.33,9.82,8.27,24.37-1.9,33.26ZM884.66,205.39c3.97-4.6,3.98-11.12.06-15.73-4.76-5.59-13.28-6.45-19.3-2.27-4.6,3.2-6.3,8.67-4.7,13.98,1.42,4.72,6.14,8.19,11.49,8.53,4.67.29,9.21-.76,12.45-4.51Z"/>
+        <path class="l-navy" d="M404.88,202.9l-.13-49.7-19.95-.03-.07-13.43h20.01s.03-22.97.03-22.97l16.87-.03-.11,72.29-.34,12.14c-.12,4.37-2.7,6.98-6.88,7.8-3.71.73-9.42-1.08-9.43-6.08Z"/>
+        <path class="l-navy" d="M389.65,186.51c-9.37-4.38-15.92-11.7-20.85-20.87-4.6,8.93-10.67,16.19-18.98,21.15-5.54,3.31-10.8,1.01-14.23-4.56l10.95-11.19c7.65-8.67,11.64-19.44,12.47-31l.25-20.78h17.95s.15,18.81.15,18.81c.96,12.21,5.11,23.6,13.48,32.57l8.1,7.85c.83,4.69-5.89,9.63-9.3,8.04Z"/>
+        <path class="l-navy" d="M1029.06,190.61c-.5,5.21-11.57,6.35-15.05,2.57-1.81-1.97-2.09-4.56-1.6-7.89l-24.48-.09.32-11.46h23.99s0-60.5,0-60.5h17.51s-.01,70.38-.01,70.38l-.67,6.99Z"/>
+        <path class="l-navy" d="M986.93,150.24c-13.13,7.29-33.06,6.03-42.58-5.07-7.12-8.31-5.6-20.18,2.78-27.11,6.08-5.02,13.64-7.05,21.61-6.93,6.85.1,13.43,1.17,19.16,4.94s10.18,10.28,9.67,17.63c-.48,6.9-4.32,13.04-10.65,16.55ZM978.68,138.42c3.31-4.47,2.23-10.29-2.45-13.28-6.35-4.06-16.96-1.96-19.04,5.45-.83,2.95,0,6.02,1.86,8.26,4.82,5.78,15.41,5.26,19.62-.43Z"/>
+        <path class="l-navy" d="M316.06,223l-40.58-.02-18.23.26c-4.33.06-8.31-.12-12.56-.93-4.72-1.47-8.74-5.4-8.77-10.76l-.15-25.27,19.97-.05.02,18.37c.42,2.11,1.05,3.83,3.09,4.63l57.74.06c4.14,0,6.71,3.38,6.7,6.68-.01,3.93-2.8,7.02-7.24,7.02Z"/>
+        <path class="l-navy" d="M445.81,200.5c-.03,4.89-2.83,8.03-7.34,8.51-4.37.47-8.65-1.25-9.72-5.9v-86.37s17.16,0,17.16,0l-.03,73.43-.07,10.33Z"/>
+        <path class="l-navy" d="M923.23,144.44v11.81s-16.96,0-16.96,0l-.35,8.51c-.13,3.12-1.59,5.54-4.81,6.51-2.35.71-5.38.71-7.84,0-3.03-.87-4.97-3.39-4.97-6.71l-.04-51.26,17.6-.08.16,9.82,17.15-.02.09,11.73h-17.08s.03,9.72.03,9.72l17.02-.03Z"/>
+        <path class="l-navy" d="M1029.3,218.22l-48.27.26-18.83.22-4.75-.68c-5.22-.86-9.48-4.9-9.53-10.46l-.17-19.31h18s0,13.89,0,13.89c.43,1.73,1.24,3.24,2.99,3.67l58.29.08c3.34,0,6.02,2.08,6.5,4.8.8,3.1-.91,6.01-4.24,7.54Z"/>
+        <path class="l-navy" d="M959.99,181.72l-.19-12.02-30.02-.04.05-12.19,43.11-.08,13.3.07,8-.3,12.02-1.44c1.79.84,2.62,3.43,2.53,5.26-.08,1.49-.83,4.49-2.81,5.03-9.24,2.55-18.58,3.25-28.24,3.79v15.97s-13.92-.1-13.92-.1c-1.94-.01-3.8-1.87-3.84-3.95Z"/>
+        </g>
+        <g>
+        <path class="l-orange" d="M525.55,243.99c-11.9.41-19.93-10.08-23.41-20.68l-12.22-37.26-13.33-41.16-1.63-8.88c-1.77-9.63,5.55-22.45,15.15-24.49l70.83-15.06,50.77-10.66c6.36-1.34,12.75-.61,18.76,1.21,4.42,1.34,7.73,4.77,9.64,8.84,3.59,7.62,5.84,15.29,7.41,23.62,2.59,13.8,5.68,27,9.45,40.53l7.4,26.56c1.39,5,1.16,10.75.48,15.63-1.59,11.28-9.7,17.85-20.35,19.98l-99.74,19.97-8.52,1.47-10.7.37ZM611.42,128.7c3.38-4.01,3.64-9.28.77-13.46-6.76-9.87-24.26-10.02-31.93-1.56-5.04,5.55-3.74,13.53,2.41,17.78,8.31,5.74,22.14,5.12,28.76-2.75ZM632.27,142.83l-.02-35.08h-9.52s.03,34.9.03,34.9c1.36,1.66,6.66,1.62,9.51.19ZM567.56,143.24h-26.31s.05-9.77.05-9.77l16.01-.24c.92-.01,2-1.93,2.04-2.83s-.43-2.49-1.22-3.17h-31.88c-.98,0-2.41-1.1-2.41-1.98l-.02-15.51h-9.61s.11,18.41.11,18.41c.02,2.86,2.75,5.16,5.39,5.18l11.92.1v9.8s-26.38.02-26.38.02l.04,6.5,61.81-.02c1.27-1.97,1.2-4.25.46-6.49ZM632.53,152.74h-32.82c-.84,0-2.02-1.14-2.01-1.86l.09-8.28c0-.69-1.23-1.91-1.91-1.9l-8.05.11.03,13.29c0,2.64,2.1,5.06,5.05,5.06h19.32s20.44-.36,20.44-.36c.84-2.01.94-4.19-.15-6.05ZM552.77,203.77l5.09.6c1.15.14,3.9-.36,4.36-1.76l.03-35.65-9.47-.15-.08,12.32-12.51.12.1,5.97,12.43.03.05,18.52ZM627.72,182.53l.04-11.79c0-.89-1.16-2.99-2.04-2.99h-43.24s-.01,15.06-.01,15.06c0,3.01,1.89,4.83,4.95,5.43l34.64-.07c3.16,0,5.65-2.48,5.66-5.64ZM542.1,198.27l3.38-5c-8.02-3.66-16.46-10.2-14.9-18.41l12.14-.07-.02-6.05h-34.95s-.02,6.05-.02,6.05l12.22.1c.65,9.38-6.97,14.83-14.67,18.83.6,2.16,2.02,3.86,3.86,5.01,6.42-2.3,11.95-5.6,16.07-11.1,4.27,5.61,10.13,8.84,16.88,10.63ZM610.75,208.66l.06-9.88,25.79-.23.1-6.31h-62.94s0,6.49,0,6.49l27.85-.07.21,10.02,8.92-.02ZM562.1,213.29l-32.38-.06c-.88,0-1.91-1.13-1.92-1.88l-.11-9.63h-9.51s-.03,12.63-.03,12.63c0,2.2,1.31,5.31,4.27,5.31l39.15-.02c2.24-.65,2.49-5.52.53-6.35ZM628.06,213.3l-35.68-.11-.14-8.07c-.01-.87-.9-2.15-1.78-2.15l-8.26.02.17,11.11c.04,2.46,1.51,5.6,4.41,5.59l40.83-.13c2.31,0,2.48-5.68.45-6.26Z"/>
+        <path class="l-orange" d="M617.52,173.89c.59,2.7.79,5.2.24,7.86l-25.41-.03-.14-7.72,8.52.02,16.79-.13Z"/>
+        <path class="l-orange" d="M603.33,124.69c-3.11,4.84-10.11,5.41-14.17,1.69-2.31-2.12-2.64-5.47-1.47-7.94,2.48-5.23,11.23-5.73,14.74-1.61,1.65,1.94,2.68,5.09.9,7.86Z"/>
+        </g>
+        <path class="l-green" d="M155.59,76.5c-.61-.23-1.77.07-2.74.41l-57.11,19.76v27.03s32.5.05,32.5.05v12.5s-32.51.01-32.51.01l.02,68.6-16.02,3.96h0v16.8l73.39,15.94c2.33.51,4.08-.68,4.08-2.94V78.92c0-.88-1-2.19-1.61-2.42Z"/>
+        <path class="l-blue" d="M25.38,74.07c-1.85-.41-3.12,1.17-3.12,2.8v143.77c0,2.39,2.5,2.97,4.36,2.47l52.64-14.17.46-.12-.05-72.5-28.43-.05-.03-12.5,28.44-.1.02-26.71,4.6-.16,11.46-.13v-6.92l-70.37-15.69Z"/>
+      </svg>
+    </a>
+
+    <nav class="main" aria-label="주메뉴">
+      <ul>
+        <li data-grp="about"><a href="#/about-vision">요양원 소개</a>
+          <ul class="drop">
+            <li><a href="#/about-vision">비전 / 운영원칙</a></li>
+            <li><a href="#/about-greeting">인사말</a></li>
+            <li><a href="#/about-org">조직도</a></li>
+            <li><a href="#/about-facility">시설현황</a></li>
+            <li><a href="#/about-map">오시는 길</a></li>
+          </ul>
+        </li>
+        <li data-grp="admission"><a href="#/admission">입주안내</a>
+          <ul class="drop"><li><a href="#/admission">입주안내</a></li></ul>
+        </li>
+        <li data-grp="service"><a href="#/service">사업소개</a>
+          <ul class="drop"><li><a href="#/service">요양원</a></li></ul>
+        </li>
+        <li data-grp="support"><a href="#/support-donate">후원안내</a>
+          <ul class="drop">
+            <li><a href="#/support-donate">후원안내</a></li>
+            <li><a href="#/support-volunteer">자원봉사</a></li>
+          </ul>
+        </li>
+        <li data-grp="board"><a href="#/board-notice">알림마당</a>
+          <ul class="drop">
+            <li><a href="#/board-notice">공지사항</a></li>
+            <li><a href="#/board-free">자유게시판</a></li>
+            <li><a href="#/board-event">행사소식</a></li>
+            <li><a href="#/board-photo">포토갤러리</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="callbtn" href="tel:0635422737">상담 063-542-2737</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false">전체메뉴</button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="panel" role="dialog" aria-label="전체 메뉴">
+    <button class="close" id="drawerclose" type="button">닫기</button>
+    <h3>요양원 소개</h3>
+    <a href="#/about-vision">비전 / 운영원칙</a>
+    <a href="#/about-greeting">인사말</a>
+    <a href="#/about-org">조직도</a>
+    <a href="#/about-facility">시설현황</a>
+    <a href="#/about-map">오시는 길</a>
+    <h3>입주안내</h3>
+    <a href="#/admission">입주안내</a>
+    <h3>사업소개</h3>
+    <a href="#/service">요양원</a>
+    <h3>후원안내</h3>
+    <a href="#/support-donate">후원안내</a>
+    <a href="#/support-volunteer">자원봉사</a>
+    <h3>알림마당</h3>
+    <a href="#/board-notice">공지사항</a>
+    <a href="#/board-free">자유게시판</a>
+    <a href="#/board-event">행사소식</a>
+    <a href="#/board-photo">포토갤러리</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ══════════ HOME ══════════ -->
+<section class="view" id="v-home" aria-label="홈">
+  <div class="hero">
+    <svg class="art" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="var(--surface)"/>
+          <stop offset="100%" stop-color="var(--surface-2)"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="520" fill="url(#sky)"/>
+      <circle cx="1180" cy="130" r="52" fill="var(--accent)" opacity=".16"/>
+      <path d="M0 400 C 220 372, 400 404, 620 392 S 1060 366, 1440 396 L1440 520 L0 520Z" fill="var(--primary)" opacity=".09"/>
+      <path d="M0 442 C 260 420, 520 452, 800 438 S 1200 418, 1440 440 L1440 520 L0 520Z" fill="var(--primary)" opacity=".13"/>
+      <path d="M0 486 C 300 470, 640 494, 980 482 S 1300 470, 1440 484 L1440 520 L0 520Z" fill="var(--primary)" opacity=".18"/>
+    </svg>
+    <div class="wrap">
+      <!-- 모바일에서는 자연스러운 순서(태그→제목→사진→설명→버튼)로 흐르고,
+           900px 이상에서만 grid-area 로 왼쪽 글 / 오른쪽 사진 2단이 된다 -->
+      <div class="herogrid">
+        <span class="tag">전북 김제 · 노인요양시설</span>
+        <h1>스물다섯 분만 모십니다.<br>이름을 부르며 돌보기 위해서입니다.</h1>
+        <figure class="heroshot">
+          <div class="ph">시설 전경 사진<br><small>실제 사진으로 교체 예정</small></div>
+        </figure>
+        <p class="lead">정원 25명의 소규모 요양원입니다. 어르신 한 분 한 분의 습관과 표정을 아는 것부터 돌봄이 시작된다고 믿습니다.</p>
+        <div class="btns">
+          <a class="btn" href="tel:0635422737">입소 상담 전화하기</a>
+          <a class="btn ghost" href="#/admission">입주 절차 보기</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div class="f-tel"><dt>대표전화</dt><dd>063-542-2737<small>연중무휴</small></dd></div>
+        <div><dt>면회시간</dt><dd>09–12 / 13–17<small>사전 연락 권장</small></dd></div>
+        <div><dt>정원</dt><dd>25명<small>2·3·4인실 운영</small></dd></div>
+        <div class="f-loc"><dt>위치</dt><dd>김제 용지면<small>터미널에서 15분</small></dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap body">
+    <div class="block">
+      <span class="eyebrow">우리가 지키는 것</span>
+      <h2>규모가 작아서 할 수 있는 돌봄</h2>
+      <div class="grid g3">
+        <div class="card">
+          <h3>얼굴을 아는 돌봄</h3>
+          <p>정원 25명. 요양보호사가 담당 어르신의 식사량 변화, 걸음걸이, 그날의 기분까지 알아차릴 수 있는 규모를 유지합니다.</p>
+        </div>
+        <div class="card">
+          <h3>하루가 비어 있지 않게</h3>
+          <p>인지기능향상, 음악·신체활동, 미술, 전래놀이, 교구블록, 예배까지 요일별 프로그램으로 하루를 구성합니다.</p>
+        </div>
+        <div class="card">
+          <h3>연중무휴 생활 지원</h3>
+          <p>간호 인력과 요양보호사가 교대로 상주하며, 촉탁의 진료와 협력 의료기관 연계로 건강 상태를 관리합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">프로그램</span>
+      <h2>어르신의 한 주</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>요일</th><th>오전 10:00</th><th>오후 14:00</th></tr></thead>
+          <tbody>
+            <tr><th>월요일</th><td>인지기능향상</td><td>교구블록</td></tr>
+            <tr><th>화요일</th><td>음악·신체활동</td><td>전래놀이</td></tr>
+            <tr><th>수요일</th><td>예배</td><td>신체활동</td></tr>
+            <tr><th>목요일</th><td>미술활동</td><td>교구블록</td></tr>
+            <tr><th>금요일</th><td>인지기능향상</td><td>이·미용 / 목욕</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">위 일과표는 프로그램 구성 예시입니다. <b>실제 운영 시간표로 교체가 필요합니다.</b></p>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">알림마당</span>
+      <h2>최근 소식</h2>
+      <div class="tablewrap board-wrap">
+        <table class="board">
+          <tbody>
+            <tr><td><span class="pill">공지</span></td><td><a href="#/board-notice">면회 사전예약 운영 안내</a></td><td class="num">2026-07-20</td></tr>
+            <tr><td><span class="pill">행사</span></td><td><a href="#/board-event">7월 생신잔치를 열었습니다</a></td><td class="num">2026-07-14</td></tr>
+            <tr><td><span class="pill">공지</span></td><td><a href="#/board-notice">여름철 건강관리 및 냉방 운영 안내</a></td><td class="num">2026-07-02</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h2>입소 상담은 부담 없이</h2>
+        <p>등급이 아직 없어도 괜찮습니다. 신청 방법부터 함께 안내해 드립니다.</p>
+      </div>
+      <div class="right">
+        <a class="tel" href="tel:0635422737">063-542-2737</a>
+        <small>연중무휴 · 방문 상담은 사전 연락 부탁드립니다</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 비전 / 운영원칙 ══════════ -->
+<section class="view" id="v-about-vision">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 요양원 소개 · <span>비전 / 운영원칙</span></p>
+    <h1>비전 / 운영원칙</h1>
+    <p>어떤 마음으로 어르신을 모실 것인지, 저희가 스스로에게 정한 기준입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <span class="eyebrow">설립 정신</span>
+      <h2>섬김의 마음에서 시작했습니다</h2>
+      <p class="lead">기독교 정신을 바탕으로 문을 연 요양원입니다. 어르신을 <b>돌볼 대상</b>이 아니라 <b>섬길 어른</b>으로 대하자는 것이 저희가 출발한 자리입니다.</p>
+      <p class="note">매주 예배를 정규 일과로 드리고 있습니다. 다만 <b>입소와 생활에 종교를 조건으로 두지 않습니다.</b> 다른 신앙을 가지신 어르신도, 신앙이 없으신 어르신도 똑같이 모시며 예배 참여는 언제나 본인의 뜻에 따릅니다.</p>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">미션</span>
+      <h2>노년의 하루가 존엄하도록</h2>
+      <p class="lead">거동이 불편해지고 기억이 흐려져도, 한 사람으로서의 삶은 계속됩니다. 저희는 어르신이 <b>돌봄의 대상</b>이 아니라 <b>생활의 주인</b>으로 하루를 보내시도록 돕습니다.</p>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">비전</span>
+      <div class="grid g2">
+        <div class="card"><h3>가족이 안심하는 곳</h3><p>보호자가 궁금해하기 전에 먼저 알리고, 어르신의 하루를 투명하게 공유하는 요양원.</p></div>
+        <div class="card"><h3>지역과 함께하는 곳</h3><p>용지면과 김제 지역사회의 자원봉사·후원과 연결되어, 닫혀 있지 않은 요양원.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">운영원칙</span>
+      <h2>다섯 가지 약속</h2>
+      <ul class="ticks">
+        <li><b>존엄</b> — 어르신을 아이처럼 대하지 않습니다. 호칭과 말투부터 어른에 대한 예를 지킵니다.</li>
+        <li><b>안전</b> — 낙상·욕창·감염을 예방 중심으로 관리하고, 사고 발생 시 보호자에게 즉시 알립니다.</li>
+        <li><b>소통</b> — 건강 상태와 생활 변화를 정기적으로 보호자에게 전달합니다.</li>
+        <li><b>자립</b> — 스스로 하실 수 있는 일은 대신 하지 않고, 시간이 걸려도 기다립니다.</li>
+        <li><b>전문성</b> — 종사자 교육과 사례회의를 정례화하고, 인권 교육을 매년 이수합니다.</li>
+      </ul>
+    </div>
+
+    <p class="tbd">확인 필요 — 위 설립 정신·미션·비전·운영원칙 문구는 시설 성격에 맞춰 작성한 초안입니다. 실제 시설 이념·서비스 헌장이 있다면 그 내용으로 대체합니다. 설립 법인 또는 교회명, 설립 연혁도 알려주시면 반영합니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 인사말 ══════════ -->
+<section class="view" id="v-about-greeting">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 요양원 소개 · <span>인사말</span></p>
+    <h1>인사말</h1>
+  </div></div>
+  <div class="wrap body">
+    <div class="grid" style="grid-template-columns:minmax(0,1fr)">
+      <div class="grid g2" style="align-items:start">
+        <div class="ph" style="aspect-ratio:3/4">시설장 사진<br>(준비 중)</div>
+        <div class="prose">
+          <p class="lead">연세노인전문요양원 홈페이지를 찾아주셔서 감사합니다.</p>
+          <p>부모님을 요양원에 모시기로 결정하기까지, 얼마나 많은 밤을 고민하셨을지 저희는 압니다. 그 무거운 마음을 아는 것에서부터 저희의 일이 시작된다고 생각합니다.</p>
+          <p>저희는 2021년 문을 연 정원 25명의 작은 요양원입니다. 크지 않은 규모를 고집하는 이유는 분명합니다. 어르신의 성함과 살아오신 이야기, 좋아하시는 반찬과 잠드시는 시간까지 알고 있어야 제대로 된 돌봄이 가능하다고 믿기 때문입니다.</p>
+          <p>저희는 기독교 정신 위에 세워진 요양원입니다. 그 말이 거창한 뜻은 아닙니다. 매주 함께 예배를 드리고, 무엇보다 어르신 한 분을 끝까지 귀하게 여기자는 다짐입니다. 신앙이 다르시거나 없으신 어르신께도 이 마음은 똑같이 향합니다.</p>
+          <p>어르신이 이곳에서 편안하시도록, 가족께서 걱정 없이 일상으로 돌아가실 수 있도록 정성을 다하겠습니다. 언제든 찾아오셔서 저희가 어떻게 지내는지 직접 보아 주십시오.</p>
+          <p style="margin-top:14px"><b>연세노인전문요양원 시설장 ○○○</b> 올림</p>
+        </div>
+      </div>
+    </div>
+    <p class="tbd">확인 필요 — 시설장 성함, 사진, 그리고 직접 작성하신 인사말 원고가 있다면 교체합니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 조직도 ══════════ -->
+<section class="view" id="v-about-org">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 요양원 소개 · <span>조직도</span></p>
+    <h1>조직도</h1>
+    <p>어르신 한 분을 여러 직종이 함께 돌봅니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="card">
+      <div class="org">
+        <div class="box">시설장</div>
+        <div class="rail"></div>
+        <div class="box sub">운영위원회 · 사례회의</div>
+        <div class="rail"></div>
+        <div class="cross"></div>
+        <div class="row" style="margin-top:-1px">
+          <div class="col"><div class="rail"></div><div class="box sub">사무국<br><small>행정 · 회계</small></div></div>
+          <div class="col"><div class="rail"></div><div class="box sub">사회복지팀<br><small>상담 · 프로그램</small></div></div>
+          <div class="col"><div class="rail"></div><div class="box sub">간호팀<br><small>건강관리 · 투약</small></div></div>
+          <div class="col"><div class="rail"></div><div class="box sub">요양팀<br><small>신체활동 지원</small></div></div>
+          <div class="col"><div class="rail"></div><div class="box sub">영양 · 위생<br><small>급식 · 환경</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>인력 현황</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>직종</th><th class="num">인원</th><th>역할</th></tr></thead>
+          <tbody>
+            <tr><th>시설장</th><td class="num">1</td><td>시설 총괄 운영</td></tr>
+            <tr><th>사회복지사</th><td class="num">확인 중</td><td>입소 상담, 프로그램 기획, 보호자 소통</td></tr>
+            <tr><th>간호 인력</th><td class="num">확인 중</td><td>건강 상태 관찰, 투약 및 처치, 병원 연계</td></tr>
+            <tr><th>요양보호사</th><td class="num">12</td><td>식사·목욕·배설·이동 등 일상생활 지원</td></tr>
+            <tr><th>촉탁의사</th><td class="num">1</td><td>정기 진료 및 건강 자문</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbd">확인 필요 — 공개 자료마다 사회복지사·간호 인력 수치가 달라 표기를 보류했습니다. 실제 재직 인원을 알려주시면 반영합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 시설현황 ══════════ -->
+<section class="view" id="v-about-facility">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 요양원 소개 · <span>시설현황</span></p>
+    <h1>시설현황</h1>
+    <p>어르신이 생활하시는 공간과 시설 기본 정보입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <h2>기본 현황</h2>
+      <div class="tablewrap">
+        <table>
+          <tbody>
+            <tr><th>시설명</th><td>연세노인전문요양원</td></tr>
+            <tr><th>시설 종류</th><td>노인요양시설 (노인장기요양보험 지정기관)</td></tr>
+            <tr><th>설립 주체</th><td>확인 중 — 설립 법인 또는 교회명</td></tr>
+            <tr><th>지정일자</th><td>2021년 8월 31일</td></tr>
+            <tr><th>정원</th><td>25명</td></tr>
+            <tr><th>생활실 구성</th><td>2인실 1실 · 3인실 5실 · 4인실 2실</td></tr>
+            <tr><th>소재지</th><td>전북특별자치도 김제시 용지면 용지1길 18-4</td></tr>
+            <tr><th>운영</th><td>연중무휴</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>공간 안내</h2>
+      <div class="grid g3">
+        <div class="card"><h3>생활실</h3><p>2·3·4인실로 구성. 침대별 수납과 개인 물품 공간을 두어 익숙한 물건과 함께 지내시도록 했습니다.</p></div>
+        <div class="card"><h3>프로그램실</h3><p>인지활동·미술·음악 프로그램이 진행되는 공용 공간입니다.</p></div>
+        <div class="card"><h3>식당</h3><p>영양사가 계획한 식단을 제공하며, 저작·연하 상태에 따라 다진식·죽식으로 조절합니다.</p></div>
+        <div class="card"><h3>목욕실</h3><p>미끄럼 방지 바닥과 안전 손잡이를 갖춘 목욕 공간에서 주 2회 이상 목욕을 지원합니다.</p></div>
+        <div class="card"><h3>간호사실</h3><p>혈압·혈당·체온 등 일상 건강 지표를 기록하고 투약을 관리합니다.</p></div>
+        <div class="card"><h3>옥외 공간 · 주차장</h3><p>정문 앞 주차 가능. 날씨가 좋은 날에는 어르신들과 함께 바깥 공기를 쐽니다.</p></div>
+      </div>
+      <p class="tbd">확인 필요 — 실제 보유 공간(물리치료실, 프로그램실 수, 옥상정원 등)과 건물 연면적·층수를 알려주시면 정확히 반영합니다.</p>
+    </div>
+
+    <div class="block">
+      <h2>시설 사진</h2>
+      <div class="gallery">
+        <figure><div class="ph">외관 전경</div><figcaption>사진 준비 중</figcaption></figure>
+        <figure><div class="ph">생활실</div><figcaption>사진 준비 중</figcaption></figure>
+        <figure><div class="ph">프로그램실</div><figcaption>사진 준비 중</figcaption></figure>
+        <figure><div class="ph">식당</div><figcaption>사진 준비 중</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 오시는 길 ══════════ -->
+<section class="view" id="v-about-map">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 요양원 소개 · <span>오시는 길</span></p>
+    <h1>오시는 길</h1>
+    <p>김제터미널에서 차로 약 15분 거리입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="ph wide">네이버 지도 영역<br><small>실서비스 전환 시 지도 API 연동</small></div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>주소 및 연락처</h3>
+        <ul class="ticks" style="margin-top:12px">
+          <li><b>주소</b> 전북특별자치도 김제시 용지면 용지1길 18-4</li>
+          <li><b>전화</b> <a href="tel:0635422737">063-542-2737</a></li>
+          <li><b>팩스</b> 063-542-2738</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>면회 안내</h3>
+        <ul class="ticks" style="margin-top:12px">
+          <li><b>오전</b> 09:00 – 12:00</li>
+          <li><b>오후</b> 13:00 – 17:00</li>
+          <li><b>연중무휴</b> 원활한 면회를 위해 방문 전 연락 부탁드립니다.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card"><h3>자가용</h3><p>내비게이션에 <b>연세노인전문요양원</b> 또는 <b>김제시 용지면 용지1길 18-4</b>를 입력하시면 됩니다. 정문 앞 주차장을 이용하실 수 있습니다.</p></div>
+      <div class="card"><h3>대중교통</h3><p>김제공용버스터미널에서 용지면 방면 버스 이용 또는 택시로 약 15분.</p><p class="tbd" style="margin-top:12px">확인 필요 — 실제 경유 버스 노선번호와 하차 정류장명</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 입주안내 ══════════ -->
+<section class="view" id="v-admission">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · <span>입주안내</span></p>
+    <h1>입주안내</h1>
+    <p>입소 대상부터 절차, 비용, 준비물까지 한 번에 정리했습니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <span class="eyebrow">입소 대상</span>
+      <h2>이런 분들이 입소하실 수 있습니다</h2>
+      <ul class="ticks">
+        <li><b>장기요양 1등급 · 2등급</b> 판정을 받으신 어르신</li>
+        <li><b>3~5등급</b> 중 치매 등으로 시설급여가 필요하다고 인정된 어르신</li>
+        <li><b>등급외자 · 일반</b> 어르신 (전액 본인부담으로 입소 상담 가능)</li>
+      </ul>
+      <p class="note">아직 장기요양등급이 없으시더라도 괜찮습니다. <b>국민건강보험공단 등급 신청 방법부터 안내해 드립니다.</b> 전화 주시면 상황에 맞게 설명드리겠습니다.</p>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">입소 절차</span>
+      <h2>다섯 단계로 진행됩니다</h2>
+      <ol class="steps">
+        <li><div><h3>전화 상담</h3><p>어르신의 건강 상태와 필요하신 돌봄을 여쭙고, 입소 가능 여부와 예상 비용을 안내드립니다.</p></div></li>
+        <li><div><h3>장기요양등급 확인</h3><p>등급이 있으시면 인정서를 확인하고, 없으시면 공단 신청 절차를 안내드립니다.</p></div></li>
+        <li><div><h3>방문 상담 및 시설 견학</h3><p>직접 오셔서 생활실과 식당, 프로그램 진행 모습을 보시고 판단하시길 권해 드립니다.</p></div></li>
+        <li><div><h3>계약 및 서류 제출</h3><p>입소 계약서를 작성하고 필요 서류를 제출합니다. 비용과 환불 규정을 다시 한번 설명드립니다.</p></div></li>
+        <li><div><h3>입소 및 적응 지원</h3><p>초기 2주간은 적응 상태를 집중 관찰하고, 보호자께 자주 연락드립니다.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">비용</span>
+      <h2>비용은 이렇게 구성됩니다</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>구분</th><th>내용</th><th>부담</th></tr></thead>
+          <tbody>
+            <tr><th>급여비용 본인부담</th><td>장기요양보험이 적용되는 요양 서비스 비용</td><td>일반 20% / 감경 대상 12~8% / 기초생활수급자 면제</td></tr>
+            <tr><th>식재료비</th><td>매 끼니 식사 및 간식 재료비</td><td>비급여 · 전액 본인부담</td></tr>
+            <tr><th>상급침실료</th><td>1·2인실 등 상급 생활실 이용 시</td><td>비급여 · 전액 본인부담</td></tr>
+            <tr><th>이·미용비</th><td>이발 및 미용 서비스</td><td>비급여 · 실비</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">급여비용은 <b>보건복지부 고시에 따라 매년 변경</b>되며, 등급과 감경 여부에 따라 개인별 부담액이 달라집니다. 정확한 금액은 상담 시 안내드립니다.</p>
+      <p class="tbd">확인 필요 — 식재료비·상급침실료 등 비급여 항목의 실제 단가. 장기요양기관은 비급여 항목과 금액을 게시할 의무가 있어 실서비스 전 반드시 채워야 합니다.</p>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">준비물</span>
+      <h2>입소 시 준비해 주실 것</h2>
+      <div class="grid g2">
+        <div class="card"><h3>서류</h3><ul class="ticks" style="margin-top:10px">
+          <li>장기요양인정서 및 표준장기요양이용계획서</li>
+          <li>건강진단서 (결핵 검사 포함)</li>
+          <li>어르신·보호자 신분증 사본</li>
+          <li>복용 중인 약 처방전 또는 약 봉투</li>
+        </ul></div>
+        <div class="card"><h3>생활용품</h3><ul class="ticks" style="margin-top:10px">
+          <li>속옷 및 편한 실내복 여벌</li>
+          <li>세면도구, 개인 컵, 수건</li>
+          <li>실내화 (미끄럼 방지)</li>
+          <li>익숙한 물건 하나 — 사진, 담요 등 적응에 도움이 됩니다</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">자주 묻는 질문</span>
+      <h2>보호자께서 많이 물으시는 것들</h2>
+      <details class="faq"><summary>면회는 언제 가능한가요?</summary><div class="ans">연중무휴로 오전 09:00~12:00, 오후 13:00~17:00에 가능합니다. 어르신 프로그램 시간과 겹치지 않도록 방문 전 전화 주시면 좋습니다.</div></details>
+      <details class="faq"><summary>지금 바로 입소할 수 있나요?</summary><div class="ans">정원 25명 규모로 운영하고 있어 시기에 따라 대기가 있을 수 있습니다. 현재 잔여 자리는 전화로 확인해 주십시오.</div></details>
+      <details class="faq"><summary>치매가 있으신 어르신도 받아주시나요?</summary><div class="ans">네. 인지기능향상 프로그램을 정규 일과로 운영하고 있습니다. 다만 증상 정도에 따라 안전하게 모실 수 있는지 상담을 통해 함께 판단합니다.</div></details>
+      <details class="faq"><summary>종교가 다르면 입소가 어려운가요?</summary><div class="ans">아닙니다. 기독교 정신으로 운영하는 시설이라 매주 예배가 정규 일과에 있지만, <b>입소 자격이나 생활에 종교를 조건으로 두지 않습니다.</b> 예배 참여는 어르신 본인의 뜻에 따르며, 참여하지 않으시는 동안에는 다른 활동을 함께 준비해 드립니다.</div></details>
+      <details class="faq"><summary>병원 진료가 필요하면 어떻게 하나요?</summary><div class="ans">촉탁의 정기 진료가 있으며, 그 외 진료가 필요한 경우 보호자께 연락드린 뒤 협력 의료기관으로 연계합니다.</div></details>
+      <details class="faq"><summary>중도에 퇴소하면 비용은 어떻게 되나요?</summary><div class="ans">이용 일수 기준으로 정산하며, 선납금이 있는 경우 환불 규정에 따라 반환합니다. 계약 시 서면으로 안내드립니다.</div></details>
+    </div>
+
+    <div class="cta">
+      <div><h2>먼저 전화 한 통이면 됩니다</h2><p>결정하지 않으셔도 괜찮습니다. 상황만 말씀해 주세요.</p></div>
+      <div class="right"><a class="tel" href="tel:0635422737">063-542-2737</a><small>연중무휴 상담</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 사업소개 > 요양원 ══════════ -->
+<section class="view" id="v-service">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 사업소개 · <span>요양원</span></p>
+    <h1>요양원 사업</h1>
+    <p>노인장기요양보험 시설급여를 제공하는 노인요양시설입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <span class="eyebrow">제공 서비스</span>
+      <h2>다섯 영역으로 어르신의 하루를 지원합니다</h2>
+      <div class="grid g2">
+        <div class="card"><h3>신체활동 지원</h3><p>식사, 목욕, 배설, 옷 갈아입기, 이동 등 일상생활을 요양보호사가 곁에서 돕습니다. 스스로 하실 수 있는 부분은 기다려 드립니다.</p></div>
+        <div class="card"><h3>건강관리</h3><p>혈압·혈당·체온을 정기 측정하고 복약을 관리합니다. 촉탁의 진료와 협력 의료기관 연계로 이상 징후에 대응합니다.</p></div>
+        <div class="card"><h3>인지활동 지원</h3><p>인지기능향상 프로그램, 교구블록, 전래놀이를 통해 기억력과 판단력의 유지를 돕습니다.</p></div>
+        <div class="card"><h3>영양 관리</h3><p>영양사가 계획한 식단을 제공하며, 씹고 삼키는 능력에 따라 일반식·다진식·죽식으로 조절합니다.</p></div>
+        <div class="card"><h3>정서 지원</h3><p>음악·미술 활동과 예배 등 정서 프로그램, 그리고 어르신의 이야기를 들어드리는 시간을 둡니다.</p></div>
+        <div class="card"><h3>가족 소통</h3><p>어르신의 건강 변화와 생활 모습을 보호자께 정기적으로 전달하고, 특이사항은 즉시 연락드립니다.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="eyebrow">하루 일과</span>
+      <h2>어르신의 하루</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>시간</th><th>일과</th></tr></thead>
+          <tbody>
+            <tr><th>07:00</th><td>기상 · 세면 · 건강 상태 확인</td></tr>
+            <tr><th>08:00</th><td>아침 식사 · 복약</td></tr>
+            <tr><th>10:00</th><td>오전 프로그램 (인지 · 음악 · 예배 등)</td></tr>
+            <tr><th>12:00</th><td>점심 식사 · 복약 · 휴식</td></tr>
+            <tr><th>14:00</th><td>오후 프로그램 · 목욕 · 면회</td></tr>
+            <tr><th>17:30</th><td>저녁 식사 · 복약</td></tr>
+            <tr><th>20:00</th><td>취침 준비 · 야간 순회 시작</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbd">확인 필요 — 실제 운영 시간표 기준으로 조정합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 후원안내 ══════════ -->
+<section class="view" id="v-support-donate">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 후원안내 · <span>후원안내</span></p>
+    <h1>후원안내</h1>
+    <p>작은 정성이 어르신의 하루를 조금 더 풍요롭게 만듭니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <h2>후원금은 이렇게 쓰입니다</h2>
+      <div class="grid g3">
+        <div class="card"><h3>프로그램 재료비</h3><p>미술·교구·전래놀이 등 활동에 필요한 재료를 마련합니다.</p></div>
+        <div class="card"><h3>계절 행사</h3><p>생신잔치, 명절 행사, 나들이 등 어르신이 기다리시는 날을 만듭니다.</p></div>
+        <div class="card"><h3>생활 물품</h3><p>위생용품, 내의, 침구 등 생활에 필요한 물품을 보충합니다.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>후원 방법</h2>
+      <div class="grid g3">
+        <div class="card"><h3>정기후원</h3><p>매월 일정 금액을 자동이체로 후원해 주시는 방법입니다.</p></div>
+        <div class="card"><h3>일시후원</h3><p>원하시는 시기에 원하시는 금액을 후원해 주시는 방법입니다.</p></div>
+        <div class="card"><h3>물품후원</h3><p>생활용품, 식품, 프로그램 재료 등 현물 후원도 받고 있습니다. 필요 물품은 전화로 문의해 주세요.</p></div>
+      </div>
+      <p class="tbd">확인 필요 — 후원 계좌(은행 · 계좌번호 · 예금주)와 기부금영수증 발급 가능 여부(지정기부금단체 지정 여부)를 확인해 주셔야 게시할 수 있습니다.</p>
+    </div>
+
+    <div class="block">
+      <h2>후원 신청</h2>
+      <div class="card">
+        <div class="form">
+          <div class="field"><label for="dn">성함</label><input id="dn" type="text" autocomplete="name"></div>
+          <div class="field"><label for="dp">연락처</label><input id="dp" type="tel" autocomplete="tel" placeholder="010-0000-0000"></div>
+          <div class="field"><label for="dt">후원 방법</label><select id="dt"><option>정기후원</option><option>일시후원</option><option>물품후원</option></select></div>
+          <div class="field"><label for="da">후원 금액</label><input id="da" type="text" placeholder="예) 월 30,000원"></div>
+          <div class="field full"><label for="dm">남기실 말씀</label><textarea id="dm"></textarea></div>
+          <div class="field full"><div class="consent"><input id="dc" type="checkbox"><label for="dc">개인정보 수집·이용에 동의합니다. 수집 항목: 성함, 연락처 / 목적: 후원 상담 및 영수증 발급 / 보유 기간: 목적 달성 후 파기</label></div></div>
+          <div class="field full"><button class="btn" type="button" data-demo>후원 신청하기</button></div>
+        </div>
+      </div>
+      <p class="note">프로토타입 단계라 <b>신청 폼은 실제로 전송되지 않습니다.</b> 실서비스 전환 시 개인정보처리방침 게시와 함께 연동합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 자원봉사 ══════════ -->
+<section class="view" id="v-support-volunteer">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 후원안내 · <span>자원봉사</span></p>
+    <h1>자원봉사</h1>
+    <p>어르신께 가장 반가운 선물은 찾아와 주시는 마음입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <h2>이런 봉사를 함께합니다</h2>
+      <div class="grid g2">
+        <div class="card"><h3>말벗 봉사</h3><p>어르신 곁에 앉아 이야기를 들어드리는 일입니다. 가장 필요하고, 가장 기다려지는 봉사입니다.</p></div>
+        <div class="card"><h3>프로그램 보조</h3><p>미술·음악·인지활동 진행을 돕습니다.</p></div>
+        <div class="card"><h3>재능 기부</h3><p>악기 연주, 이·미용, 사진 촬영 등 가지고 계신 재능을 나눠 주세요.</p></div>
+        <div class="card"><h3>환경 정비</h3><p>옥외 화단 정리, 계절 행사 준비 등을 함께합니다.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>신청 절차</h2>
+      <ol class="steps">
+        <li><div><h3>전화 또는 신청서 접수</h3><p>희망하시는 봉사 종류와 가능한 요일·시간을 알려주세요.</p></div></li>
+        <li><div><h3>일정 조율</h3><p>어르신 일과와 맞는 시간대로 조율해 연락드립니다.</p></div></li>
+        <li><div><h3>사전 교육</h3><p>첫 방문 시 어르신 응대 방법과 감염관리 수칙을 짧게 안내드립니다.</p></div></li>
+        <li><div><h3>봉사 활동 및 실적 등록</h3><p>활동 후 1365 자원봉사포털 등에 시간을 등록해 드립니다.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h2>봉사 전 알아두실 점</h2>
+      <ul class="ticks">
+        <li>발열·기침 등 감염 증상이 있으시면 방문을 미뤄 주세요. 어르신은 감염에 취약합니다.</li>
+        <li>어르신의 사진 촬영과 SNS 게시는 시설의 사전 동의가 필요합니다.</li>
+        <li>음식물 반입은 어르신의 건강 상태와 관련되므로 반드시 사전에 문의해 주세요.</li>
+        <li>활동 중 알게 된 어르신의 개인정보는 외부에 알리지 말아 주세요.</li>
+      </ul>
+      <div class="btns"><a class="btn" href="tel:0635422737">봉사 문의 063-542-2737</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 공지사항 ══════════ -->
+<section class="view" id="v-board-notice">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 알림마당 · <span>공지사항</span></p>
+    <h1>공지사항</h1>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <div class="boardtop"><p class="count">전체 <b>5</b>건</p></div>
+      <div class="tablewrap board-wrap">
+        <table class="board">
+          <thead><tr><th>번호</th><th>제목</th><th>작성자</th><th class="num">등록일</th><th class="num">조회</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill">필독</span></td><td><a href="#/board-notice" data-demo>면회 사전예약 운영 안내</a></td><td>관리자</td><td class="num">2026-07-20</td><td class="num">142</td></tr>
+            <tr><td>4</td><td><a href="#/board-notice" data-demo>여름철 건강관리 및 냉방 운영 안내</a></td><td>관리자</td><td class="num">2026-07-02</td><td class="num">98</td></tr>
+            <tr><td>3</td><td><a href="#/board-notice" data-demo>2026년 상반기 어르신 건강검진 결과 안내</a></td><td>관리자</td><td class="num">2026-06-18</td><td class="num">76</td></tr>
+            <tr><td>2</td><td><a href="#/board-notice" data-demo>급식 식단표 게시 위치 변경 안내</a></td><td>관리자</td><td class="num">2026-05-30</td><td class="num">54</td></tr>
+            <tr><td>1</td><td><a href="#/board-notice" data-demo>홈페이지를 새로 열었습니다</a></td><td>관리자</td><td class="num">2026-05-12</td><td class="num">203</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pager"><a href="#/board-notice" aria-current="page">1</a></div>
+      <p class="note">위 목록은 <b>화면 구성을 보여드리기 위한 예시 데이터</b>입니다. 실제 글 작성·수정 기능은 관리자 페이지가 필요하며 다음 단계에서 구축합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 자유게시판 ══════════ -->
+<section class="view" id="v-board-free">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 알림마당 · <span>자유게시판</span></p>
+    <h1>자유게시판</h1>
+    <p>보호자와 지역 주민 누구나 이야기를 남기실 수 있는 공간입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="block">
+      <div class="boardtop">
+        <p class="count">전체 <b>4</b>건</p>
+        <button class="btn ghost" type="button" data-demo>글쓰기</button>
+      </div>
+      <div class="tablewrap board-wrap">
+        <table class="board">
+          <thead><tr><th>번호</th><th>제목</th><th>작성자</th><th class="num">등록일</th><th class="num">조회</th></tr></thead>
+          <tbody>
+            <tr><td>4</td><td><a href="#/board-free" data-demo>어머니 잘 지내신다는 연락 받았습니다. 감사합니다</a></td><td>김○○</td><td class="num">2026-07-22</td><td class="num">37</td></tr>
+            <tr><td>3</td><td><a href="#/board-free" data-demo>면회 시간 문의드립니다</a></td><td>이○○</td><td class="num">2026-07-11</td><td class="num">45</td></tr>
+            <tr><td>2</td><td><a href="#/board-free" data-demo>봉사활동 신청은 어디로 하면 되나요</a></td><td>박○○</td><td class="num">2026-06-27</td><td class="num">62</td></tr>
+            <tr><td>1</td><td><a href="#/board-free" data-demo>생신잔치 사진 잘 봤습니다</a></td><td>정○○</td><td class="num">2026-06-15</td><td class="num">51</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pager"><a href="#/board-free" aria-current="page">1</a></div>
+      <p class="note">예시 데이터입니다. <b>공개 게시판은 스팸과 개인정보 노출 위험이 있어</b>, 실서비스에서는 관리자 승인 후 노출하거나 비공개 문의 폼으로 운영하시길 권해 드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 행사소식 ══════════ -->
+<section class="view" id="v-board-event">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 알림마당 · <span>행사소식</span></p>
+    <h1>행사소식</h1>
+    <p>어르신들과 함께한 날들을 기록합니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="grid g3">
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-07-14</time><h3>7월 생신잔치</h3><p>7월에 생신을 맞으신 네 분 어르신을 위해 케이크와 노래로 축하드렸습니다.</p></div></article>
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-06-05</time><h3>초여름 텃밭 가꾸기</h3><p>어르신들과 함께 옥외 화단에 상추와 고추 모종을 심었습니다.</p></div></article>
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-05-08</time><h3>어버이날 행사</h3><p>지역 자원봉사자분들이 찾아와 카네이션을 달아드리고 공연을 해주셨습니다.</p></div></article>
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-04-11</time><h3>봄나들이</h3><p>날씨 좋은 날, 어르신들과 가까운 공원에 다녀왔습니다.</p></div></article>
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-02-16</time><h3>정월대보름 윷놀이</h3><p>편을 나눠 윷놀이 한판. 어르신들 함성이 가장 컸던 날입니다.</p></div></article>
+      <article class="evcard"><div class="ph">행사 사진</div><div class="txt"><time>2026-01-02</time><h3>새해 떡국 나눔</h3><p>새해 첫날, 다 함께 떡국을 나누며 한 살을 더했습니다.</p></div></article>
+    </div>
+    <p class="note">예시 데이터입니다. 실제 행사 사진과 글로 교체합니다. <b>어르신 얼굴이 나오는 사진은 본인 또는 보호자의 동의가 필요합니다.</b></p>
+  </div>
+</section>
+
+<!-- ══════════ 포토갤러리 ══════════ -->
+<section class="view" id="v-board-photo">
+  <div class="phead"><div class="wrap">
+    <p class="crumb">홈 · 알림마당 · <span>포토갤러리</span></p>
+    <h1>포토갤러리</h1>
+    <p>시설과 일상의 순간들입니다.</p>
+  </div></div>
+  <div class="wrap body">
+    <div class="gallery">
+      <figure><div class="ph">사진</div><figcaption>생신잔치 · 2026.07</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>텃밭 가꾸기 · 2026.06</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>어버이날 행사 · 2026.05</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>봄나들이 · 2026.04</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>미술 프로그램 · 2026.03</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>윷놀이 · 2026.02</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>새해 떡국 · 2026.01</figcaption></figure>
+      <figure><div class="ph">사진</div><figcaption>시설 외관</figcaption></figure>
+    </div>
+    <div class="pager"><a href="#/board-photo" aria-current="page">1</a></div>
+    <p class="note">사진 자리만 잡아 둔 상태입니다. 실제 사진을 주시면 채워 넣겠습니다.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>연세노인전문요양원</h4>
+        <p>전북특별자치도 김제시 용지면<br>용지1길 18-4</p>
+        <p>노인장기요양보험 지정 노인요양시설<br>2021년 8월 31일 지정 · 정원 25명</p>
+      </div>
+      <div>
+        <h4>연락처</h4>
+        <ul>
+          <li>전화 <a href="tel:0635422737">063-542-2737</a></li>
+          <li>팩스 063-542-2738</li>
+          <li>연중무휴 운영</li>
+        </ul>
+      </div>
+      <div>
+        <h4>면회 안내</h4>
+        <ul>
+          <li>오전 09:00 – 12:00</li>
+          <li>오후 13:00 – 17:00</li>
+          <li>방문 전 연락 부탁드립니다</li>
+        </ul>
+      </div>
+      <div>
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="#/admission">입주안내</a></li>
+          <li><a href="#/about-facility">시설현황</a></li>
+          <li><a href="#/about-map">오시는 길</a></li>
+          <li><a href="#/support-donate">후원안내</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 연세노인전문요양원</span>
+      <span>프로토타입 · 개인정보처리방침 및 이용약관은 실서비스 전환 시 게시 예정</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 숨김 상태로 시작한다. 페이지 자체가 JS 라우팅에 의존하므로 JS 없이 보일 일은 없고,
+     이렇게 해야 홈 첫 로딩에서 바가 나타났다 내려가는 깜빡임이 없다 -->
+<div class="callbar" data-hidden>
+  <a href="tel:0635422737" class="p">전화 상담</a>
+  <a href="#/about-map">오시는 길</a>
+</div>
+
+<script>
+(function(){
+  var TITLES = {
+    'home':'연세노인전문요양원',
+    'about-vision':'비전 / 운영원칙','about-greeting':'인사말','about-org':'조직도',
+    'about-facility':'시설현황','about-map':'오시는 길','admission':'입주안내','service':'요양원',
+    'support-donate':'후원안내','support-volunteer':'자원봉사','board-notice':'공지사항',
+    'board-free':'자유게시판','board-event':'행사소식','board-photo':'포토갤러리'
+  };
+  var drawer = document.getElementById('drawer');
+  var burger = document.getElementById('burger');
+  var panel  = drawer.querySelector('.panel');
+
+  function isOpen(){ return drawer.hasAttribute('data-open'); }
+
+  function closeDrawer(refocus){
+    if(!isOpen()) return;
+    drawer.removeAttribute('data-open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    if(refocus) burger.focus();
+  }
+  function openDrawer(){
+    drawer.setAttribute('data-open','');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    var first = panel.querySelector('a, button');
+    if(first) first.focus();
+  }
+  burger.addEventListener('click', openDrawer);
+  document.getElementById('drawerclose').addEventListener('click', function(){ closeDrawer(true); });
+  drawer.addEventListener('click', function(e){ if(e.target === drawer) closeDrawer(true); });
+
+  document.addEventListener('keydown', function(e){
+    if(!isOpen()) return;
+    if(e.key === 'Escape'){ closeDrawer(true); return; }
+    if(e.key !== 'Tab') return;
+    // 드로어가 열려 있는 동안 포커스가 뒤 화면으로 새어 나가지 않게 가둔다
+    var f = panel.querySelectorAll('a[href], button');
+    if(!f.length) return;
+    var first = f[0], last = f[f.length-1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  function route(){
+    var id = (location.hash || '#/home').replace('#/','');
+    if(!TITLES[id]) id = 'home';
+    var views = document.querySelectorAll('section.view');
+    for(var i=0;i<views.length;i++) views[i].classList.remove('active');
+    var el = document.getElementById('v-'+id);
+    if(el) el.classList.add('active');
+
+    document.title = id === 'home' ? '연세노인전문요양원' : TITLES[id] + ' · 연세노인전문요양원';
+
+    var links = document.querySelectorAll('nav.main a, .drawer a');
+    for(var j=0;j<links.length;j++){
+      var h = links[j].getAttribute('href') || '';
+      if(h === '#/'+id) links[j].setAttribute('aria-current','page');
+      else links[j].removeAttribute('aria-current');
+    }
+    var grp = id === 'home' ? '' : id.split('-')[0];
+    if(grp === 'admission' || grp === 'service') grp = id;
+    var tops = document.querySelectorAll('nav.main > ul > li');
+    for(var k=0;k<tops.length;k++){
+      tops[k].classList.toggle('on', tops[k].getAttribute('data-grp') === grp);
+    }
+    closeDrawer();
+    window.scrollTo(0,0);
+    syncCallbar(id);
+  }
+
+  // 홈에서는 히어로의 전화 CTA가 보이는 동안 하단 고정 바를 내려 둔다.
+  // 히어로가 없는 나머지 페이지에서는 처음부터 계속 띄운다.
+  var callbar = document.querySelector('.callbar');
+  var callbarIO = null;
+  function syncCallbar(id){
+    if(callbarIO){ callbarIO.disconnect(); callbarIO = null; }
+    var heroCta = id === 'home' ? document.querySelector('#v-home .herogrid .btns') : null;
+    if(!heroCta || !('IntersectionObserver' in window)){
+      callbar.removeAttribute('data-hidden');
+      return;
+    }
+    callbar.setAttribute('data-hidden','');
+    callbarIO = new IntersectionObserver(function(entries){
+      for(var i=0;i<entries.length;i++){
+        if(entries[i].isIntersecting) callbar.setAttribute('data-hidden','');
+        else callbar.removeAttribute('data-hidden');
+      }
+    }, {threshold:0});
+    callbarIO.observe(heroCta);
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-demo]');
+    if(t){ e.preventDefault(); alert('프로토타입입니다. 이 기능은 실서비스 전환 시 동작합니다.'); }
+  });
+
+  var tb = document.getElementById('themebtn');
+  function currentTheme(){
+    return document.documentElement.getAttribute('data-theme')
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+  function syncThemeLabel(){
+    tb.textContent = currentTheme() === 'dark' ? '밝게 보기' : '어둡게 보기';
+  }
+  tb.addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('ysc-theme', next); }catch(e){}
+    syncThemeLabel();
+  });
+  syncThemeLabel();
+})();
+</script>
+
+</body>
+</html>
