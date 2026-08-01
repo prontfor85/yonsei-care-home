@@ -17,6 +17,24 @@ media_folder: src/uploads
 public_folder: /uploads
 
 collections:
+  - name: settings
+    label: 사이트 설정
+    files:
+      - name: home
+        label: 메인 화면
+        file: src/_data/home.json
+        fields:
+          - name: heroImage
+            label: 메인 대표 사진
+            widget: image
+            required: false
+            hint: "홈 첫 화면에 크게 나오는 사진입니다. 밝은 생활 공간이나 활동 장면의 가로 사진을 권합니다. 어르신 얼굴이 나오면 본인 또는 보호자의 서면 동의가 필요합니다."
+          - name: heroImageAlt
+            label: 사진 설명 (화면낭독기용)
+            widget: string
+            required: false
+            hint: "눈이 불편한 방문자에게 읽어주는 한 줄 설명입니다. 예: 프로그램실에서 미술 활동 중인 모습"
+
   - name: notice
     label: 공지사항
     folder: src/notices

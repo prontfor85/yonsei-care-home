@@ -25,7 +25,11 @@ permalink: /
         <span class="tag">전북 김제 · 노인요양시설</span>
         <h1>스물다섯 분만 모십니다.<br>이름을 부르며 돌보기 위해서입니다.</h1>
         <figure class="heroshot">
+          {%- if home.heroImage %}
+          <img src="{{ home.heroImage }}" alt="{{ home.heroImageAlt }}">
+          {%- else %}
           <div class="ph">시설 전경 사진<br><small>실제 사진으로 교체 예정</small></div>
+          {%- endif %}
         </figure>
         <p class="lead">정원 25명의 소규모 요양원입니다. 어르신 한 분 한 분의 습관과 표정을 아는 것부터 돌봄이 시작된다고 믿습니다.</p>
         <div class="btns">

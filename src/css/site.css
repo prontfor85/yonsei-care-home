@@ -221,6 +221,7 @@ tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92r
 .herogrid{display:grid; gap:22px; align-content:start}
 .heroshot{margin:0}
 .heroshot .ph{aspect-ratio:4/3; border-radius:14px; box-shadow:var(--shadow)}
+.heroshot img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; box-shadow:var(--shadow)}
 @media(min-width:900px){
   .herogrid{
     grid-template-columns:1.05fr .95fr; column-gap:48px;
@@ -394,7 +395,7 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   /* 제목·사진·설명·CTA 가 한 화면에 들어오도록 세로를 아낀다.
      하단 고정 전화바(약 52px)가 화면 밑을 먹는 걸 감안한 값이다 */
   .herogrid{gap:18px}
-  .heroshot .ph{aspect-ratio:16/9}
+  .heroshot .ph, .heroshot img{aspect-ratio:16/9}
   /* 하단 고정 바가 전화와 오시는 길을 이미 담당한다. 히어로에서 같은 걸 또 보여주면
      첫 화면에 전화번호가 세 번 나온다. 고정 바가 못 담는 정보만 남긴다 */
   .facts .f-tel, .facts .f-loc{display:none}
