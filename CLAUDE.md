@@ -47,10 +47,18 @@ Actions" 를 한 번 선택해야 했다.** push 는 커맨드라인에서 바�
 `~/bin/gh` 에 설치(PATH 에 없음, 전체 경로로 호출)하고 사용자가 로그인해 둬서
 git credential helper 가 연결돼 있다. GitHub Desktop 도 설치돼 있다(같은 계정).
 
+**관리자 로그인 활성화 (2026-08-01 완료).** 구성: GitHub OAuth 앱 "연세요양원 관리자
+로그인"(prontfor85 계정) + 자작 중계 Worker `infra/cms-auth-worker`
+(https://ysc-cms-auth.cms-auth-worker.workers.dev, Cloudflare 계정 prontfor@gmail.com).
+시크릿(GITHUB_CLIENT_SECRET)은 사용자가 `wrangler secret put` 으로 직접 등록 —
+**시크릿 값을 대화·저장소에 두지 않는다.** 참고: sveltia-cms-auth 를 쓰려다 외부 코드
+배포가 정책상 막혀 같은 역할의 Worker 를 직접 작성했다(70줄, 저장소에 포함).
+편집 권한 = 저장소 쓰기 권한. 직원 계정은 GitHub 계정 생성 후 공동작업자 초대 필요.
+
 **2차 — 도메인 결제 후 정식 전환.** Cloudflare Pages 연결(접두사 불필요, PATH_PREFIX
-미설정이면 루트로 빌드됨) + GitHub OAuth 프록시 Worker 배포 +
-`src/admin/config.yml` 의 `TODO` 세 곳(repo, base_url, site_url) 교체 + 도메인 연결.
-관리자 페이지 로그인은 2차에서야 동작한다. 개인정보처리방침은 후원 폼 연동 시 게시.
+미설정이면 루트로 빌드됨) + 도메인 연결. 이때 **세 곳을 같이 바꿔야 로그인이 유지된다**:
+`config.yml` 의 site_url / Worker 의 ALLOWED_ORIGIN / OAuth 앱의 Homepage·callback URL.
+개인정보처리방침은 후원 폼 연동 시 게시.
 
 ## 파일
 
