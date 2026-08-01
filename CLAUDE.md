@@ -34,12 +34,17 @@
 
 ### 배포 계획 (2026-08-01 변경: 2단계로)
 
-**1차 — 무료 URL로 의뢰인 검수용 공개 (고객 지시).** GitHub Pages 를 쓴다.
-`.github/workflows/deploy.yml` 이 push 마다 빌드·배포하고 Pages 활성화까지 자동
-(`configure-pages` 의 `enablement: true`). GitHub Pages 는 `/저장소명/` 하위 경로라
-워크플로가 `PATH_PREFIX` 를 넣고, `EleventyHtmlBasePlugin` 이 절대 경로를 고쳐 쓴다.
-**무료 Pages 는 공개 저장소여야 한다.** 남은 것: 사용자가 `gh auth login` 후 저장소
-생성·push (인증만 사용자 몫, 이후 단계는 실행 가능).
+**1차 — 무료 URL로 의뢰인 검수용 공개. 완료 (2026-08-01).**
+검수용 주소: **https://prontfor85.github.io/yonsei-care-home/** (저장소
+`prontfor85/yonsei-care-home`, 공개). `.github/workflows/deploy.yml` 이 push 마다
+빌드·배포한다. GitHub Pages 는 `/저장소명/` 하위 경로라 워크플로가 `PATH_PREFIX` 를 넣고,
+`EleventyHtmlBasePlugin` 이 절대 경로를 고쳐 쓴다.
+
+배포 과정에서 배운 것: GitHub Desktop 퍼블리시는 기본이 비공개고(무료 Pages 는 공개
+필수 — 웹 Danger Zone에서 전환), `configure-pages` 의 `enablement: true` 는 기본
+토큰 권한으로 실패한다 — **Pages 소스는 Settings → Pages 에서 수동으로 "GitHub
+Actions" 를 한 번 선택해야 했다.** 이 Mac 의 커맨드라인 git 에는 GitHub 인증이 없어
+push 는 GitHub Desktop 으로 한다(커밋은 로컬에서 만들고 사용자가 Push origin 클릭).
 
 **2차 — 도메인 결제 후 정식 전환.** Cloudflare Pages 연결(접두사 불필요, PATH_PREFIX
 미설정이면 루트로 빌드됨) + GitHub OAuth 프록시 Worker 배포 +
