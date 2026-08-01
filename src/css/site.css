@@ -404,24 +404,32 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   .facts dd{font-size:1.06rem}
 }
 
-/* ===== 히어로 풀블리드 (2026-08-01 확정) =====
-   데스크톱에서 사진이 히어로 전체 배경으로 깔리고, 왼쪽 텍스트 구간은
-   --surface-2 기반 그라데이션이 덮는다(라이트/다크 테마 자동 성립).
-   모바일(<900px)에서는 기존 박스형 사진을 유지한다 — 전체 배경으로 깔면
-   글 전체에 강한 스크림이 필요해 사진이 안 보이고, 첫 화면 세로 예산도 깨진다.
-   사진은 가로로 긴, 주요 피사체가 오른쪽에 있는 이미지를 전제로 한다. */
-.hero .hero-bg, .hero .hero-scrim{display:none}
+/* ===== 히어로 풀블리드 (2026-08-01 확정, 모바일 포함 확장) =====
+   사진이 히어로 전체 배경으로 깔리고(.hero.has-bg), 텍스트 구간은 --surface-2 기반
+   그라데이션이 덮는다(라이트/다크 테마 자동 성립).
+   900px 기준으로 이미지가 갈린다 — 이상: 가로형(피사체 오른쪽, 왼쪽은 글자 구간),
+   미만: 세로형(피사체 아래쪽, 위쪽은 글자 구간). 모바일용이 없으면 가로형을 겸용.
+   사진이 없으면 .has-bg 가 안 붙고 기존 점선 플레이스홀더(.heroshot)로 돌아간다. */
+.hero-bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero-scrim{position:absolute; inset:0}
+@media(max-width:899px){
+  .hero-bg{object-position:center bottom}
+  .hero-scrim{background:linear-gradient(180deg,
+    var(--surface-2) 0%,
+    color-mix(in srgb, var(--surface-2) 94%, transparent) 42%,
+    color-mix(in srgb, var(--surface-2) 55%, transparent) 68%,
+    transparent 94%)}
+  /* CTA 아래로 사진이 온전히 드러나는 영역을 확보한다 */
+  .hero.has-bg .herogrid{padding-bottom:220px}
+}
 @media(min-width:900px){
-  .hero[data-hero] .hero-bg{display:block; position:absolute; inset:0; width:100%; height:100%;
-    object-fit:cover; object-position:72% center}
-  .hero[data-hero] .heroshot{display:none}
-  .hero[data-hero] .herogrid{min-height:330px; align-content:center}
-  .hero[data-hero] .hero-scrim{display:block; position:absolute; inset:0;
-    background:linear-gradient(90deg,
-      var(--surface-2) 0%,
-      color-mix(in srgb, var(--surface-2) 96%, transparent) 40%,
-      color-mix(in srgb, var(--surface-2) 55%, transparent) 64%,
-      transparent 90%)}
+  .hero-bg{object-position:72% center}
+  .hero.has-bg .herogrid{min-height:330px; align-content:center}
+  .hero-scrim{background:linear-gradient(90deg,
+    var(--surface-2) 0%,
+    color-mix(in srgb, var(--surface-2) 96%, transparent) 40%,
+    color-mix(in srgb, var(--surface-2) 55%, transparent) 64%,
+    transparent 90%)}
 }
 
 @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }

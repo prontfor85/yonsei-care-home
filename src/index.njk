@@ -4,7 +4,7 @@ grp: home
 hero: true
 permalink: /
 ---
-  <div class="hero" data-hero="v1">
+  <div class="hero{% if home.heroImage %} has-bg{% endif %}">
     <svg class="art" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -19,7 +19,11 @@ permalink: /
       <path d="M0 486 C 300 470, 640 494, 980 482 S 1300 470, 1440 484 L1440 520 L0 520Z" fill="var(--primary)" opacity=".18"/>
     </svg>
     {%- if home.heroImage %}
-    <img class="hero-bg" src="{{ home.heroImage }}" alt="{{ home.heroImageAlt }}">
+    {#- 900px 이상 = 데스크톱용 가로형, 미만 = 모바일용 세로형(없으면 데스크톱용 겸용) #}
+    <picture>
+      <source media="(min-width:900px)" srcset="{{ home.heroImage }}">
+      <img class="hero-bg" src="{{ home.heroImageMobile or home.heroImage }}" alt="{{ home.heroImageAlt }}">
+    </picture>
     <div class="hero-scrim" aria-hidden="true"></div>
     {%- endif %}
     <div class="wrap">
@@ -28,13 +32,11 @@ permalink: /
       <div class="herogrid">
         <span class="tag">{{ home.heroTag }}</span>
         <h1>{{ home.heroTitle | nl2br | safe }}</h1>
+        {%- if not home.heroImage %}
         <figure class="heroshot">
-          {%- if home.heroImage %}
-          <img src="{{ home.heroImage }}" alt="{{ home.heroImageAlt }}">
-          {%- else %}
           <div class="ph">시설 전경 사진<br><small>실제 사진으로 교체 예정</small></div>
-          {%- endif %}
         </figure>
+        {%- endif %}
         <p class="lead">{{ home.heroLead }}</p>
         <div class="btns">
           <a class="btn" href="tel:0635422737">입소 상담 전화하기</a>

@@ -25,10 +25,15 @@ collections:
         file: src/_data/home.json
         fields:
           - name: heroImage
-            label: 메인 대표 사진
+            label: 메인 대표 사진 (컴퓨터 화면용)
             widget: image
             required: false
-            hint: "홈 첫 화면 전체에 배경으로 깔리는 사진입니다. 가로로 긴 사진이어야 하고, 컴퓨터 화면에서는 왼쪽에 글자가 덮이므로 주요 피사체(인물·건물)는 오른쪽에 있어야 합니다. 어르신 얼굴이 나오면 본인 또는 보호자의 서면 동의가 필요합니다."
+            hint: "홈 첫 화면 전체에 배경으로 깔리는 가로로 긴 사진입니다. 왼쪽에 글자가 덮이므로 주요 피사체(인물·건물)는 오른쪽에 있어야 합니다. 어르신 얼굴이 나오면 본인 또는 보호자의 서면 동의가 필요합니다."
+          - name: heroImageMobile
+            label: 메인 대표 사진 (휴대폰 화면용)
+            widget: image
+            required: false
+            hint: "휴대폰에서 보이는 세로형 사진입니다. 위쪽에 글자가 덮이므로 주요 피사체는 아래쪽 절반에 있어야 합니다. 비워두면 컴퓨터용 사진을 함께 씁니다."
           - name: heroImageAlt
             label: 사진 설명 (화면낭독기용)
             widget: string
