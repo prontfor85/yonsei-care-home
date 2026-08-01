@@ -51,7 +51,10 @@
           </ul>
         </li>
         <li{% if grp == "admission" %} class="on"{% endif %}><a href="/admission/">입주안내</a>
-          <ul class="drop"><li>{{ navlink('/admission/', '입주안내') }}</li></ul>
+          <ul class="drop">
+            <li>{{ navlink('/admission/', '입주안내') }}</li>
+            <li>{{ navlink('/visit/', '면회 안내') }}</li>
+          </ul>
         </li>
         <li{% if grp == "service" %} class="on"{% endif %}><a href="/service/">사업소개</a>
           <ul class="drop"><li>{{ navlink('/service/', '요양원') }}</li></ul>
@@ -88,6 +91,7 @@
     {{ navlink('/about/map/', '오시는 길') }}
     <h3>입주안내</h3>
     {{ navlink('/admission/', '입주안내') }}
+    {{ navlink('/visit/', '면회 안내') }}
     <h3>사업소개</h3>
     {{ navlink('/service/', '요양원') }}
     <h3>후원안내</h3>
@@ -132,6 +136,7 @@
         <h4>바로가기</h4>
         <ul>
           <li><a href="/admission/">입주안내</a></li>
+          <li><a href="/visit/">면회 안내</a></li>
           <li><a href="/about/facility/">시설현황</a></li>
           <li><a href="/about/map/">오시는 길</a></li>
           <li><a href="/support/donate/">후원안내</a></li>
