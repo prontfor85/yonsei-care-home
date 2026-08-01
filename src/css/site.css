@@ -158,7 +158,7 @@ tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92r
 /* ---------- hero ---------- */
 .hero{position:relative; background:var(--surface-2); overflow:hidden; border-bottom:1px solid var(--line)}
 .hero .art{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
-.hero .wrap{position:relative; padding-block:64px 76px; display:flex; flex-direction:column; gap:34px}
+.hero .wrap{position:relative; padding-block:64px 56px; display:flex; flex-direction:column; gap:34px}
 .hero h1{font-size:clamp(1.85rem,4.4vw,2.95rem); max-width:24ch}
 .hero .lead{font-size:1.14rem; max-width:44ch; color:var(--ink-2)}
 .hero .tag{font-size:.76rem; letter-spacing:.18em; font-weight:700; color:var(--accent)}
@@ -181,7 +181,7 @@ tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92r
 }
 
 .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:8px}
+  background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:56px}
 .facts div{background:var(--surface); padding:20px 22px}
 .facts dt{font-size:.74rem; letter-spacing:.12em; color:var(--accent); font-weight:700; margin-bottom:6px}
 .facts dd{margin:0; font-size:1.14rem; font-weight:700; font-variant-numeric:tabular-nums; line-height:1.5}
