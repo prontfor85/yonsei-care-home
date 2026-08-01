@@ -18,6 +18,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("dateISO", (d) => new Date(d).toISOString().slice(0, 10));
   eleventyConfig.addFilter("dateDot", (d) => new Date(d).toISOString().slice(0, 7).replace("-", "."));
 
+  // 어드민에서 입력한 문구의 줄바꿈을 <br> 로 살린다 (HTML 은 이스케이프)
+  eleventyConfig.addFilter("nl2br", (s = "") =>
+    String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\r?\n/g, "<br>"),
+  );
+
   eleventyConfig.addFilter("onlyPinned", (arr) => arr.filter((p) => p.data.pinned));
   eleventyConfig.addFilter("notPinned", (arr) => arr.filter((p) => !p.data.pinned));
 

@@ -34,6 +34,18 @@ collections:
             widget: string
             required: false
             hint: "눈이 불편한 방문자에게 읽어주는 한 줄 설명입니다. 예: 프로그램실에서 미술 활동 중인 모습"
+          - name: heroTag
+            label: 머리글 (제목 위 작은 글씨)
+            widget: string
+            hint: "예: 전북 김제 · 노인요양시설"
+          - name: heroTitle
+            label: 대표 문구 (큰 제목)
+            widget: text
+            hint: "줄을 바꾸면 화면에서도 그 자리에서 줄이 바뀝니다. 휴대폰 화면을 생각해 두 줄 안팎을 권합니다."
+          - name: heroLead
+            label: 소개 문장 (제목 아래 설명)
+            widget: text
+            hint: "두세 문장 이내를 권합니다."
 
   - name: notice
     label: 공지사항

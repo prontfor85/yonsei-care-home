@@ -22,8 +22,8 @@ permalink: /
       <!-- 모바일에서는 자연스러운 순서(태그→제목→사진→설명→버튼)로 흐르고,
            900px 이상에서만 grid-area 로 왼쪽 글 / 오른쪽 사진 2단이 된다 -->
       <div class="herogrid">
-        <span class="tag">전북 김제 · 노인요양시설</span>
-        <h1>스물다섯 분만 모십니다.<br>이름을 부르며 돌보기 위해서입니다.</h1>
+        <span class="tag">{{ home.heroTag }}</span>
+        <h1>{{ home.heroTitle | nl2br | safe }}</h1>
         <figure class="heroshot">
           {%- if home.heroImage %}
           <img src="{{ home.heroImage }}" alt="{{ home.heroImageAlt }}">
@@ -31,7 +31,7 @@ permalink: /
           <div class="ph">시설 전경 사진<br><small>실제 사진으로 교체 예정</small></div>
           {%- endif %}
         </figure>
-        <p class="lead">정원 25명의 소규모 요양원입니다. 어르신 한 분 한 분의 습관과 표정을 아는 것부터 돌봄이 시작된다고 믿습니다.</p>
+        <p class="lead">{{ home.heroLead }}</p>
         <div class="btns">
           <a class="btn" href="tel:0635422737">입소 상담 전화하기</a>
           <a class="btn ghost" href="/admission/">입주 절차 보기</a>
