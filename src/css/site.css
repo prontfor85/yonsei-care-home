@@ -331,14 +331,15 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   table.board{min-width:0; display:block; font-size:1rem}
   table.board thead{display:none}
   table.board tbody{display:flex; flex-direction:column; gap:10px}
-  table.board tr{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px;
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:15px 17px}
+  table.board tr{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:13px 16px}
   table.board td{display:block; border:none; padding:0; width:auto; text-align:left}
   table.board td:nth-child(2){order:1; flex:1 0 100%; font-size:1.02rem; line-height:1.5}
   table.board td:nth-child(2) a{display:block}
   /* 카드로 쌓이면 글 번호는 정보가 되지 못한다. 말머리(필독·공지 등)만 남긴다 */
   table.board td:first-child{display:none}
-  table.board td:first-child:has(.pill){display:block; order:2; font-size:.84rem}
+  /* 표 시절 고정 폭(70px)을 풀어야 말머리와 날짜가 붙어 보인다 */
+  table.board td:first-child:has(.pill){display:block; order:2; font-size:.84rem; width:auto}
   table.board td:nth-child(3){order:3; font-size:.84rem; color:var(--ink-2)}
   table.board td:nth-child(4){order:4; font-size:.84rem; color:var(--ink-2)}
   table.board td:nth-child(5){order:5; font-size:.84rem; color:var(--ink-2)}
