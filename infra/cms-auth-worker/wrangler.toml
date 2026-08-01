@@ -1,0 +1,13 @@
+# 관리자 페이지 로그인 중계 Worker 배포 설정.
+# 배포: 이 폴더에서 `npx wrangler deploy`
+# 시크릿: `npx wrangler secret put GITHUB_CLIENT_SECRET` (값은 터미널에 직접 입력)
+name = "ysc-cms-auth"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+# GitHub OAuth 앱의 Client ID (공개값). 앱 이름: "연세요양원 관리자 로그인" (prontfor85 계정)
+GITHUB_CLIENT_ID = "Ov23li8aPMfgCD28un2S"
+# 토큰을 전달받을 수 있는 유일한 출처 = 사이트 origin.
+# 2차 전환(도메인 연결) 때 실제 도메인으로 바꿔야 한다.
+ALLOWED_ORIGIN = "https://prontfor85.github.io"

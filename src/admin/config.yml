@@ -1,14 +1,15 @@
 # Decap CMS 설정.
-# backend 의 repo 와 base_url 은 GitHub 저장소를 만들고 OAuth 프록시(Cloudflare Worker)를
-# 배포한 뒤 실제 값으로 채워야 관리자 로그인이 동작한다.
+# 로그인 중계 서버는 infra/cms-auth-worker (Cloudflare Worker) — GitHub OAuth 앱
+# "연세요양원 관리자 로그인"과 연결돼 있다. 2차 전환(도메인) 때 site_url 과
+# Worker 의 ALLOWED_ORIGIN, OAuth 앱의 callback URL 을 함께 바꿔야 한다.
 backend:
   name: github
-  repo: OWNER/REPO # TODO: 실제 GitHub 저장소로 교체
+  repo: prontfor85/yonsei-care-home
   branch: main
-  base_url: https://TODO-oauth-worker.example.workers.dev # TODO: OAuth 프록시 주소로 교체
+  base_url: https://ysc-cms-auth.cms-auth-worker.workers.dev
 
 locale: ko
-site_url: https://example.org # TODO: 실제 도메인으로 교체
+site_url: https://prontfor85.github.io/yonsei-care-home/
 
 media_folder: src/uploads
 public_folder: /uploads
