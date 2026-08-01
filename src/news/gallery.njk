@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: 포토갤러리
+grp: board
+---
+<div class="phead"><div class="wrap">
+  <p class="crumb">홈 · 알림마당 · <span>포토갤러리</span></p>
+  <h1>포토갤러리</h1>
+  <p>시설과 일상의 순간들입니다.</p>
+</div></div>
+<div class="wrap body">
+  <div class="gallery">
+    {%- for p in collections.photo | reverse %}
+    <figure>
+      {%- if p.data.image %}
+      <img src="{{ p.data.image }}" alt="{{ p.data.title }}" loading="lazy">
+      {%- else %}
+      <div class="ph">사진</div>
+      {%- endif %}
+      <figcaption>{{ p.data.title }} · {{ p.date | dateDot }}</figcaption>
+    </figure>
+    {%- endfor %}
+  </div>
+  <p class="note"><b>어르신 얼굴이 나오는 사진은 본인 또는 보호자의 동의를 받아 게시합니다.</b></p>
+</div>

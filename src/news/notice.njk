@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: 공지사항
+grp: board
+---
+<div class="phead"><div class="wrap">
+  <p class="crumb">홈 · 알림마당 · <span>공지사항</span></p>
+  <h1>공지사항</h1>
+</div></div>
+<div class="wrap body">
+  <div class="block">
+    <div class="boardtop"><p class="count">전체 <b>{{ collections.notice | length }}</b>건</p></div>
+    <div class="tablewrap board-wrap">
+      <table class="board">
+        <thead><tr><th>번호</th><th>제목</th><th>작성자</th><th class="num">등록일</th></tr></thead>
+        <tbody>
+          {%- for n in collections.notice | onlyPinned | reverse %}
+          <tr><td><span class="pill">필독</span></td><td><a href="{{ n.url }}">{{ n.data.title }}</a></td><td>{{ n.data.author }}</td><td class="num">{{ n.date | dateISO }}</td></tr>
+          {%- endfor %}
+          {%- for n in collections.notice | notPinned | reverse %}
+          <tr><td>{{ loop.revindex }}</td><td><a href="{{ n.url }}">{{ n.data.title }}</a></td><td>{{ n.data.author }}</td><td class="num">{{ n.date | dateISO }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="pager"><a href="/news/notice/" aria-current="page">1</a></div>
+  </div>
+</div>

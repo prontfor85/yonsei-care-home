@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>연세노인전문요양원</title>
 <meta name="description" content="전북 김제 용지면에 있는 정원 25명의 소규모 노인요양시설입니다. 입소 상담 063-542-2737 · 연중무휴 운영 · 면회 09:00–12:00 / 13:00–17:00">
-<meta name="theme-color" content="#2F6248" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#141814" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#1d336c" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#111419" media="(prefers-color-scheme:dark)">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="연세노인전문요양원">
@@ -493,7 +493,6 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
         <li data-grp="board"><a href="#/board-notice">알림마당</a>
           <ul class="drop">
             <li><a href="#/board-notice">공지사항</a></li>
-            <li><a href="#/board-free">자유게시판</a></li>
             <li><a href="#/board-event">행사소식</a></li>
             <li><a href="#/board-photo">포토갤러리</a></li>
           </ul>
@@ -524,7 +523,6 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
     <a href="#/support-volunteer">자원봉사</a>
     <h3>알림마당</h3>
     <a href="#/board-notice">공지사항</a>
-    <a href="#/board-free">자유게시판</a>
     <a href="#/board-event">행사소식</a>
     <a href="#/board-photo">포토갤러리</a>
   </div>
@@ -1079,36 +1077,6 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
   </div>
 </section>
 
-<!-- ══════════ 자유게시판 ══════════ -->
-<section class="view" id="v-board-free">
-  <div class="phead"><div class="wrap">
-    <p class="crumb">홈 · 알림마당 · <span>자유게시판</span></p>
-    <h1>자유게시판</h1>
-    <p>보호자와 지역 주민 누구나 이야기를 남기실 수 있는 공간입니다.</p>
-  </div></div>
-  <div class="wrap body">
-    <div class="block">
-      <div class="boardtop">
-        <p class="count">전체 <b>4</b>건</p>
-        <button class="btn ghost" type="button" data-demo>글쓰기</button>
-      </div>
-      <div class="tablewrap board-wrap">
-        <table class="board">
-          <thead><tr><th>번호</th><th>제목</th><th>작성자</th><th class="num">등록일</th><th class="num">조회</th></tr></thead>
-          <tbody>
-            <tr><td>4</td><td><a href="#/board-free" data-demo>어머니 잘 지내신다는 연락 받았습니다. 감사합니다</a></td><td>김○○</td><td class="num">2026-07-22</td><td class="num">37</td></tr>
-            <tr><td>3</td><td><a href="#/board-free" data-demo>면회 시간 문의드립니다</a></td><td>이○○</td><td class="num">2026-07-11</td><td class="num">45</td></tr>
-            <tr><td>2</td><td><a href="#/board-free" data-demo>봉사활동 신청은 어디로 하면 되나요</a></td><td>박○○</td><td class="num">2026-06-27</td><td class="num">62</td></tr>
-            <tr><td>1</td><td><a href="#/board-free" data-demo>생신잔치 사진 잘 봤습니다</a></td><td>정○○</td><td class="num">2026-06-15</td><td class="num">51</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pager"><a href="#/board-free" aria-current="page">1</a></div>
-      <p class="note">예시 데이터입니다. <b>공개 게시판은 스팸과 개인정보 노출 위험이 있어</b>, 실서비스에서는 관리자 승인 후 노출하거나 비공개 문의 폼으로 운영하시길 권해 드립니다.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ 행사소식 ══════════ -->
 <section class="view" id="v-board-event">
   <div class="phead"><div class="wrap">
@@ -1209,7 +1177,7 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
     'about-vision':'비전 / 운영원칙','about-greeting':'인사말','about-org':'조직도',
     'about-facility':'시설현황','about-map':'오시는 길','admission':'입주안내','service':'요양원',
     'support-donate':'후원안내','support-volunteer':'자원봉사','board-notice':'공지사항',
-    'board-free':'자유게시판','board-event':'행사소식','board-photo':'포토갤러리'
+    'board-event':'행사소식','board-photo':'포토갤러리'
   };
   var drawer = document.getElementById('drawer');
   var burger = document.getElementById('burger');

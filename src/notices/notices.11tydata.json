@@ -1,0 +1,6 @@
+{
+  "layout": "post.njk",
+  "tags": ["notice"],
+  "author": "관리자",
+  "permalink": "/news/notice/{{ page.fileSlug }}/"
+}

@@ -1,0 +1,406 @@
+/* 색은 시설 로고에서 뽑았다. 심볼의 파랑을 주색, 초록을 보조색으로 쓰고
+   본문 대비(4.5:1) 를 넘기도록 원색보다 어둡게 조정했다.
+   --brand-* 는 로고 원색으로, 로고를 그릴 때만 쓴다. */
+:root{
+  /* 로고 원본(assets/logo.svg)에서 그대로 뽑은 값. 로고를 그릴 때만 쓴다 */
+  --brand-blue:#3d7fbd; --brand-green:#4d9746; --brand-orange:#d36b2e;
+  --logo-navy:#1d336c;   /* 로고 네이비. 다크 테마에서만 밝은 값으로 바뀐다 */
+
+  --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
+  --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
+  /* 주색은 로고 네이비 그대로. 보조색은 로고 초록을 본문 대비 4.5:1 넘게 어둡게 조정한 값
+     (로고 초록 #4d9746 은 흰 배경에서 3.65:1 로 본문에 못 쓴다) */
+  --primary:#1d336c; --primary-strong:#142449; --primary-soft:#E7ECF5;
+  --accent:#3B7335; --accent-soft:#E9F1E8;
+  --on-primary:#FFFFFF;
+  --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
+  --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
+  --radius:10px;
+  --font-display:"Nanum Myeongjo","NanumMyeongjo","Noto Serif KR","Source Han Serif K",
+                 "KoPubWorld Batang","AppleMyungjo","Batang","바탕",serif;
+  --font-body:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,
+              "Apple SD Gothic Neo","Noto Sans KR","Spoqa Han Sans Neo","Malgun Gothic","맑은 고딕",sans-serif;
+  --wrap:1100px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --logo-navy:#C9D6EC;
+    --bg:#111419; --surface:#191D25; --surface-2:#212632;
+    --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
+    --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
+    --accent:#7FBE76; --accent-soft:#19241A;
+    --on-primary:#0B1220;
+    --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
+  }
+}
+:root[data-theme="dark"]{
+  --logo-navy:#C9D6EC;
+  --bg:#111419; --surface:#191D25; --surface-2:#212632;
+  --ink:#E7EAF2; --ink-2:#A2AAB9; --line:#2D3340;
+  --primary:#8FB3E4; --primary-strong:#B0C9EE; --primary-soft:#1A2338;
+  --accent:#7FBE76; --accent-soft:#19241A;
+  --on-primary:#0B1220;
+  --cta-bg:#1B2B4E; --cta-ink:#E8EFF9; --cta-ink-dim:rgba(232,239,249,.80);
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.65);
+}
+:root[data-theme="light"]{
+  --logo-navy:#1d336c;
+  --bg:#F5F6F9; --surface:#FFFFFF; --surface-2:#E9ECF3;
+  --ink:#1A1F2B; --ink-2:#4C5566; --line:#D6DBE5;
+  --primary:#1d336c; --primary-strong:#142449; --primary-soft:#E7ECF5;
+  --accent:#3B7335; --accent-soft:#E9F1E8;
+  --on-primary:#FFFFFF;
+  --cta-bg:#1d336c; --cta-ink:#FFFFFF; --cta-ink-dim:rgba(255,255,255,.84);
+  --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-body); font-size:18px; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,p,li,td,th,dd,summary,figcaption,label{word-break:keep-all; overflow-wrap:break-word}
+h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; line-height:1.35; text-wrap:balance; margin:0}
+a{color:inherit}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--primary); outline-offset:2px; border-radius:4px}
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:20px}
+
+/* ---------- prototype notice ---------- */
+.proto{
+  background:var(--accent-soft); color:var(--accent);
+  font-size:.78rem; letter-spacing:.04em; text-align:center;
+  padding:7px 20px; border-bottom:1px solid var(--line);
+}
+/* 모바일에서 두 줄을 차지해 첫 화면을 밀어내므로 짧은 문구로 바꾼다 */
+.proto .long{display:none}
+@media(min-width:620px){ .proto .long{display:inline} .proto .short{display:none} }
+
+/* ---------- skip ---------- */
+.skip{position:absolute; left:-9999px; top:0; background:var(--primary); color:var(--on-primary); padding:10px 16px; z-index:200}
+.skip:focus{left:8px; top:8px}
+
+/* ---------- header ---------- */
+header{position:sticky; top:0; z-index:100; background:var(--surface); border-bottom:1px solid var(--line)}
+.util{border-bottom:1px solid var(--line); background:var(--surface-2)}
+.util .wrap{display:flex; justify-content:flex-end; align-items:center; gap:18px; font-size:.82rem; color:var(--ink-2); min-height:38px}
+.util b{color:var(--ink); font-variant-numeric:tabular-nums}
+.themebtn{background:none; border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:.8rem;
+  padding:2px 10px; border-radius:99px; cursor:pointer}
+.themebtn:hover{color:var(--ink); border-color:var(--primary)}
+/* 태블릿 구간(하단 전화바가 사라지고 헤더 전화버튼은 아직 안 나오는 폭)에서 대표전화를 유지한다 */
+.utel{display:none; text-decoration:none; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.utel b{color:var(--primary-strong)}
+.utel:hover b{text-decoration:underline}
+@media(min-width:760px) and (max-width:1179px){ .utel{display:inline} }
+/* 좁은 화면에서는 면회시간 두 줄이 util 바를 밀어내므로 접는다 */
+@media(max-width:559px){ .util .wrap{justify-content:space-between} .util .vis{display:none} }
+
+.bar{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:74px}
+.brand{display:flex; align-items:center; text-decoration:none; flex-shrink:0}
+/* viewBox를 원본 여백 없이 콘텐츠에 맞춰 잘라 뒀다(가로세로비 5.497). 높이만 정하면 된다 */
+.brand .logo{display:block; height:40px; width:auto}
+@media(max-width:620px){ .brand .logo{height:33px} }
+.logo .l-blue{fill:var(--brand-blue)}
+.logo .l-green{fill:var(--brand-green)}
+.logo .l-orange{fill:var(--brand-orange)}
+/* 글자만 테마를 탄다. 다크 배경에서 원본 네이비는 그대로 두면 묻는다 */
+.logo .l-navy{fill:var(--logo-navy)}
+
+nav.main{display:none}
+@media(min-width:1000px){ nav.main{display:block} }
+nav.main > ul{display:flex; gap:4px; list-style:none; margin:0; padding:0}
+nav.main > ul > li{position:relative}
+nav.main > ul > li > a{
+  display:block; padding:12px 17px; text-decoration:none; font-weight:600; font-size:1rem;
+  border-radius:var(--radius); white-space:nowrap;
+}
+nav.main > ul > li > a:hover{background:var(--primary-soft); color:var(--primary-strong)}
+nav.main > ul > li.on > a{color:var(--primary-strong)}
+nav.main > ul > li.on > a::after{content:""; display:block; height:2px; background:var(--primary); margin-top:6px; border-radius:2px}
+.drop{
+  position:absolute; top:100%; left:0; min-width:190px; list-style:none; margin:0; padding:8px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+  opacity:0; visibility:hidden; transform:translateY(-6px); transition:.16s ease;
+}
+nav.main li:hover > .drop, nav.main li:focus-within > .drop{opacity:1; visibility:visible; transform:none}
+.drop a{display:block; padding:9px 13px; text-decoration:none; font-size:.94rem; border-radius:6px; color:var(--ink-2)}
+.drop a:hover{background:var(--primary-soft); color:var(--primary-strong)}
+.drop a[aria-current]{color:var(--primary-strong); font-weight:600}
+
+.callbtn{
+  display:none; align-items:center; gap:8px; background:var(--primary); color:var(--on-primary);
+  text-decoration:none; padding:11px 19px; border-radius:99px; font-weight:700; font-size:.95rem;
+  white-space:nowrap;
+}
+.callbtn:hover{background:var(--primary-strong)}
+@media(min-width:1180px){ .callbtn{display:inline-flex} }
+
+.burger{display:flex; align-items:center; gap:8px; background:none; border:1px solid var(--line);
+  color:var(--ink); font:inherit; font-size:.9rem; font-weight:600; padding:9px 14px; border-radius:8px; cursor:pointer}
+@media(min-width:1000px){ .burger{display:none} }
+
+/* ---------- drawer ---------- */
+.drawer{position:fixed; inset:0; z-index:150; background:rgba(20,24,20,.5); display:none}
+.drawer[data-open]{display:block}
+.drawer .panel{
+  position:absolute; right:0; top:0; bottom:0; width:min(340px,88vw); background:var(--surface);
+  overflow-y:auto; padding:18px 20px 40px; border-left:1px solid var(--line);
+}
+.drawer h3{font-family:var(--font-body); font-size:.72rem; letter-spacing:.14em; color:var(--accent);
+  margin:26px 0 8px; font-weight:700}
+.drawer a{display:block; padding:11px 12px; text-decoration:none; border-radius:8px; font-size:1rem}
+.drawer a:hover{background:var(--surface-2)}
+.drawer a[aria-current]{background:var(--primary-soft); color:var(--primary-strong); font-weight:700}
+.drawer .close{float:right; background:none; border:1px solid var(--line); color:var(--ink);
+  font:inherit; padding:7px 13px; border-radius:8px; cursor:pointer}
+
+/* ---------- page header ---------- */
+.phead{background:var(--surface-2); border-bottom:1px solid var(--line); padding:44px 0 40px}
+.phead .crumb{font-size:.82rem; color:var(--ink-2); margin-bottom:10px}
+.phead .crumb span{color:var(--primary-strong); font-weight:600}
+.phead h1{font-size:clamp(1.8rem,4vw,2.5rem)}
+.phead p{margin:12px 0 0; color:var(--ink-2); max-width:60ch}
+
+/* ---------- generic layout ---------- */
+main{min-height:60vh}
+.body{padding-block:56px 80px; display:flex; flex-direction:column; gap:52px}
+.block{display:flex; flex-direction:column; gap:20px}
+.block > h2{font-size:1.5rem}
+.eyebrow{font-size:.74rem; letter-spacing:.15em; color:var(--accent); font-weight:700; font-family:var(--font-body)}
+.lead{font-size:1.12rem; color:var(--ink-2); max-width:62ch}
+p{margin:0}
+.prose{display:flex; flex-direction:column; gap:16px; max-width:66ch}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
+.grid{display:grid; gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+.card h3{font-size:1.14rem; margin-bottom:8px}
+.card p{color:var(--ink-2); font-size:.97rem}
+
+ul.ticks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px}
+ul.ticks li{padding-left:29px; position:relative; color:var(--ink-2)}
+ul.ticks li::before{content:""; position:absolute; left:4px; top:.72em; width:9px; height:9px;
+  border-radius:2px; background:var(--primary); transform:rotate(45deg)}
+ul.ticks li b{color:var(--ink)}
+
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:.95rem}
+th,td{padding:13px 16px; text-align:left; border-bottom:1px solid var(--line)}
+thead th{background:var(--surface-2); font-size:.85rem; letter-spacing:.03em; color:var(--ink-2); font-weight:700}
+tbody tr:last-child td, tbody tr:last-child th{border-bottom:none}
+td.num,th.num{font-variant-numeric:tabular-nums; text-align:right}
+tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92rem}
+
+.note{background:var(--accent-soft); border-left:3px solid var(--accent); padding:16px 20px;
+  border-radius:0 8px 8px 0; font-size:.93rem; color:var(--ink-2)}
+.note b{color:var(--ink)}
+.tbd{border:1px dashed var(--accent); border-radius:8px; padding:14px 18px; font-size:.88rem; color:var(--accent)}
+
+.btn{display:inline-flex; align-items:center; gap:8px; background:var(--primary); color:var(--on-primary);
+  text-decoration:none; padding:14px 26px; border-radius:99px; font-weight:700; font-size:1rem;
+  border:none; cursor:pointer; font-family:inherit}
+.btn:hover{background:var(--primary-strong)}
+.btn.ghost{background:transparent; color:var(--primary-strong); border:1.5px solid var(--primary)}
+.btn.ghost:hover{background:var(--primary-soft)}
+.btns{display:flex; flex-wrap:wrap; gap:12px}
+
+/* ---------- hero ---------- */
+.hero{position:relative; background:var(--surface-2); overflow:hidden; border-bottom:1px solid var(--line)}
+.hero .art{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.hero .wrap{position:relative; padding-block:64px 76px; display:flex; flex-direction:column; gap:34px}
+.hero h1{font-size:clamp(1.85rem,4.4vw,2.95rem); max-width:24ch}
+.hero .lead{font-size:1.14rem; max-width:44ch; color:var(--ink-2)}
+.hero .tag{font-size:.76rem; letter-spacing:.18em; font-weight:700; color:var(--accent)}
+
+.herogrid{display:grid; gap:22px; align-content:start}
+.heroshot{margin:0}
+.heroshot .ph{aspect-ratio:4/3; border-radius:14px; box-shadow:var(--shadow)}
+@media(min-width:900px){
+  .herogrid{
+    grid-template-columns:1.05fr .95fr; column-gap:48px;
+    grid-template-areas:"tag shot" "title shot" "lead shot" "btns shot";
+    align-content:center;
+  }
+  .herogrid > .tag{grid-area:tag}
+  .herogrid > h1{grid-area:title}
+  .herogrid > .lead{grid-area:lead}
+  .herogrid > .btns{grid-area:btns}
+  .heroshot{grid-area:shot; align-self:center}
+}
+
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:8px}
+.facts div{background:var(--surface); padding:20px 22px}
+.facts dt{font-size:.74rem; letter-spacing:.12em; color:var(--accent); font-weight:700; margin-bottom:6px}
+.facts dd{margin:0; font-size:1.14rem; font-weight:700; font-variant-numeric:tabular-nums; line-height:1.5}
+.facts dd small{display:block; font-size:.82rem; font-weight:400; color:var(--ink-2)}
+
+/* ---------- steps ---------- */
+ol.steps{list-style:none; counter-reset:s; margin:0; padding:0; display:flex; flex-direction:column; gap:14px}
+ol.steps li{counter-increment:s; display:flex; gap:18px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px}
+ol.steps li::before{content:counter(s); flex-shrink:0; width:34px; height:34px; border-radius:50%;
+  background:var(--primary); color:var(--on-primary); display:grid; place-items:center;
+  font-weight:700; font-size:.95rem; font-variant-numeric:tabular-nums}
+ol.steps h3{font-size:1.05rem; margin-bottom:4px}
+ol.steps p{color:var(--ink-2); font-size:.95rem}
+
+/* ---------- org chart ---------- */
+.org{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0}
+.org .box{background:var(--surface); border:1.5px solid var(--primary); color:var(--primary-strong);
+  border-radius:8px; padding:12px 26px; font-weight:700; text-align:center; font-size:1rem}
+.org .box.sub{border-color:var(--line); color:var(--ink); font-weight:600; font-size:.95rem; padding:11px 18px}
+.org .rail{width:2px; height:26px; background:var(--line)}
+.org .row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding-top:0}
+.org .col{display:flex; flex-direction:column; align-items:center}
+.org .cross{height:2px; background:var(--line); width:min(680px,92%); margin-bottom:0}
+
+/* ---------- photo placeholder ---------- */
+.ph{aspect-ratio:4/3; border-radius:var(--radius); border:1px dashed var(--line);
+  background:
+    repeating-linear-gradient(45deg,transparent,transparent 9px,var(--surface-2) 9px,var(--surface-2) 18px),
+    var(--surface);
+  display:grid; place-items:center; color:var(--ink-2); font-size:.85rem; text-align:center; padding:12px}
+.ph.wide{aspect-ratio:16/9}
+
+/* ---------- board ---------- */
+.boardtop{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center}
+.boardtop .count{font-size:.9rem; color:var(--ink-2)}
+.boardtop .count b{color:var(--primary-strong); font-variant-numeric:tabular-nums}
+table.board td:first-child{color:var(--ink-2); font-variant-numeric:tabular-nums; width:70px}
+table.board a{text-decoration:none; font-weight:600}
+table.board a:hover{color:var(--primary-strong); text-decoration:underline}
+.pill{display:inline-block; background:var(--primary-soft); color:var(--primary-strong);
+  font-size:.74rem; font-weight:700; padding:2px 9px; border-radius:99px; margin-right:8px; vertical-align:2px}
+.pager{display:flex; gap:6px; justify-content:center; margin-top:8px}
+.pager a{width:36px; height:36px; display:grid; place-items:center; border:1px solid var(--line);
+  border-radius:7px; text-decoration:none; font-size:.9rem; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.pager a[aria-current]{background:var(--primary); border-color:var(--primary); color:var(--on-primary); font-weight:700}
+
+.evcard{display:flex; flex-direction:column; gap:0; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+.evcard .ph{border:none; border-radius:0}
+.evcard img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover}
+.evcard .txt{padding:18px 20px 22px; display:flex; flex-direction:column; gap:7px}
+.evcard time{font-size:.8rem; color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums}
+.evcard h3{font-size:1.05rem}
+.evcard p{color:var(--ink-2); font-size:.93rem}
+
+.gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px}
+.gallery figure{margin:0}
+.gallery img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius)}
+.gallery figcaption{font-size:.85rem; color:var(--ink-2); padding-top:8px}
+
+/* ---------- faq ---------- */
+details.faq{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:0}
+details.faq + details.faq{margin-top:10px}
+details.faq summary{padding:18px 22px; cursor:pointer; font-weight:600; list-style:none; display:flex;
+  justify-content:space-between; gap:16px; align-items:center; font-size:1rem}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+"; color:var(--primary); font-size:1.3rem; font-weight:700; flex-shrink:0}
+details.faq[open] summary::after{content:"\2212"}
+details.faq .ans{padding:0 22px 20px; color:var(--ink-2); font-size:.96rem}
+
+/* ---------- form ---------- */
+.form{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.field{display:flex; flex-direction:column; gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:.88rem; font-weight:600}
+input,select,textarea{font:inherit; font-size:1rem; padding:12px 14px; border:1px solid var(--line);
+  border-radius:8px; background:var(--surface); color:var(--ink); width:100%}
+textarea{min-height:120px; resize:vertical}
+.consent{display:flex; gap:10px; align-items:flex-start; font-size:.9rem; color:var(--ink-2)}
+.consent input{width:20px; height:20px; flex-shrink:0; margin-top:5px}
+
+/* ---------- CTA band ---------- */
+.cta{background:var(--cta-bg); color:var(--cta-ink); border-radius:var(--radius); padding:40px 34px;
+  display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between}
+.cta h2{font-size:1.5rem; color:var(--cta-ink)}
+.cta p{color:var(--cta-ink-dim); margin-top:8px; font-size:.98rem}
+.cta .tel{font-family:var(--font-display); font-size:2rem; font-weight:700; letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums; color:var(--cta-ink); text-decoration:none; display:block}
+.cta .tel:hover{text-decoration:underline}
+.cta .right{text-align:right}
+.cta .right small{color:var(--cta-ink-dim); font-size:.85rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--surface-2); border-top:1px solid var(--line); padding:48px 0 110px; margin-top:0}
+@media(min-width:760px){ footer{padding-bottom:48px} }
+.fgrid{display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+footer h4{font-family:var(--font-body); font-size:.74rem; letter-spacing:.14em; color:var(--accent); margin-bottom:12px}
+footer p,footer li{font-size:.92rem; color:var(--ink-2); line-height:1.85}
+footer ul{list-style:none; margin:0; padding:0}
+footer a{text-decoration:none}
+footer a:hover{color:var(--primary-strong); text-decoration:underline}
+.fbot{border-top:1px solid var(--line); margin-top:34px; padding-top:22px; font-size:.85rem; color:var(--ink-2);
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--line); border-top:1px solid var(--line); transition:transform .22s ease}
+/* 홈 히어로의 전화 CTA가 화면에 있는 동안에는 내려가 있는다. 같은 역할이 두 개 겹치지 않게. */
+.callbar[data-hidden]{transform:translateY(100%)}
+@media(min-width:760px){ .callbar{display:none} }
+.callbar a{background:var(--surface); color:var(--ink); text-decoration:none; text-align:center;
+  padding:14px 8px; font-weight:700; font-size:.95rem}
+.callbar a.p{background:var(--primary); color:var(--on-primary)}
+
+/* ---------- 모바일 보정 ---------- */
+/* 게시판 표는 좁은 화면에서 가로 스크롤 대신 카드로 쌓는다.
+   홈의 3열(구분·제목·날짜) 표와 게시판의 5열(번호·제목·작성자·날짜·조회) 표가
+   같은 규칙으로 정렬되도록 제목을 order:1로 끌어올린다. */
+@media(max-width:619px){
+  /* 표는 이제 전부 3열 이하다. 가로 스크롤 대신 화면 폭에 맞춰 접히게 둔다 */
+  table{min-width:0; font-size:.94rem}
+  th,td{padding:12px 13px}
+  tbody th{width:auto; min-width:5em}
+  .tablewrap.board-wrap{overflow:visible; border:none; border-radius:0; background:none}
+  table.board{min-width:0; display:block; font-size:1rem}
+  table.board thead{display:none}
+  table.board tbody{display:flex; flex-direction:column; gap:10px}
+  table.board tr{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:15px 17px}
+  table.board td{display:block; border:none; padding:0; width:auto; text-align:left}
+  table.board td:nth-child(2){order:1; flex:1 0 100%; font-size:1.02rem; line-height:1.5}
+  table.board td:nth-child(2) a{display:block}
+  /* 카드로 쌓이면 글 번호는 정보가 되지 못한다. 말머리(필독·공지 등)만 남긴다 */
+  table.board td:first-child{display:none}
+  table.board td:first-child:has(.pill){display:block; order:2; font-size:.84rem}
+  table.board td:nth-child(3){order:3; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(4){order:4; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(5){order:5; font-size:.84rem; color:var(--ink-2)}
+  table.board td:nth-child(5)::before{content:"조회 "}
+  table.board .pill{margin-right:0}
+}
+/* 조직도: 가로 분기선은 넓은 화면에서만 의미가 있다 */
+@media(max-width:700px){
+  .org .cross{display:none}
+  .org .row{flex-direction:column; gap:0; width:100%}
+  .org .col{width:100%}
+  .org .box{width:100%}
+}
+@media(max-width:620px){
+  .cta{padding:30px 24px}
+  .cta .right{text-align:left}
+  .phead{padding:32px 0 30px}
+  .body{padding-block:40px 64px; gap:44px}
+  .hero .wrap{padding-block:30px 40px; gap:24px}
+  /* 제목·사진·설명·CTA 가 한 화면에 들어오도록 세로를 아낀다.
+     하단 고정 전화바(약 52px)가 화면 밑을 먹는 걸 감안한 값이다 */
+  .herogrid{gap:18px}
+  .heroshot .ph{aspect-ratio:16/9}
+  /* 하단 고정 바가 전화와 오시는 길을 이미 담당한다. 히어로에서 같은 걸 또 보여주면
+     첫 화면에 전화번호가 세 번 나온다. 고정 바가 못 담는 정보만 남긴다 */
+  .facts .f-tel, .facts .f-loc{display:none}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div{padding:15px 17px}
+  .facts dd{font-size:1.06rem}
+}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }

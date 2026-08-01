@@ -1,0 +1,15 @@
+---
+layout: base.njk
+grp: board
+---
+<div class="phead"><div class="wrap">
+  <p class="crumb">홈 · 알림마당 · <span>공지사항</span></p>
+  <h1>{{ title }}</h1>
+  <p><time datetime="{{ page.date | dateISO }}">{{ page.date | dateISO }}</time> · {{ author }}</p>
+</div></div>
+<div class="wrap body">
+  <div class="prose">
+{{ content | safe }}
+  </div>
+  <div class="btns"><a class="btn ghost" href="/news/notice/">목록으로</a></div>
+</div>
