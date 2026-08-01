@@ -178,6 +178,11 @@ tbody th{font-weight:600; width:32%; background:var(--surface-2); font-size:.92r
 .btn.ghost{background:transparent; color:var(--primary-strong); border:1.5px solid var(--primary)}
 .btn.ghost:hover{background:var(--primary-soft)}
 .btns{display:flex; flex-wrap:wrap; gap:12px}
+/* 모바일: 버튼 쌍을 같은 너비로 한 줄에 (버튼이 하나면 전체 폭) */
+@media(max-width:619px){
+  .btns{gap:10px}
+  .btns .btn{flex:1 1 0; justify-content:center; text-align:center; padding:13px 10px; font-size:.95rem; white-space:nowrap}
+}
 
 /* ---------- hero ---------- */
 .hero{position:relative; background:var(--surface-2); overflow:hidden; border-bottom:1px solid var(--line)}
