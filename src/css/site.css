@@ -131,16 +131,14 @@ p{margin:0}
 
 .card h3{font-size:1.14rem; margin-bottom:8px}
 .card p{color:var(--ink-2); font-size:.97rem}
-/* 심볼 3색 포인트 카드 (홈 3대 강점) — 색은 장식(상단 보더·아이콘)만, 글자색은 그대로 */
-.sym3 .card{border-top:4px solid var(--line)}
-.sym3 .card:nth-child(1){border-top-color:var(--brand-blue)}
-.sym3 .card:nth-child(2){border-top-color:var(--brand-green)}
-.sym3 .card:nth-child(3){border-top-color:var(--brand-orange)}
-.sym3 .ic{display:grid; place-items:center; width:46px; height:46px; border-radius:13px; margin-bottom:14px}
-.sym3 .ic svg{width:24px; height:24px}
-.sym3 .card:nth-child(1) .ic{color:var(--brand-blue); background:color-mix(in srgb, var(--brand-blue) 11%, var(--surface))}
-.sym3 .card:nth-child(2) .ic{color:var(--brand-green); background:color-mix(in srgb, var(--brand-green) 11%, var(--surface))}
-.sym3 .card:nth-child(3) .ic{color:var(--brand-orange); background:color-mix(in srgb, var(--brand-orange) 11%, var(--surface))}
+/* 심볼 3색 포인트 카드 (홈 3대 강점) — 색은 아이콘(장식)만, 글자색은 그대로 */
+.sym3 h3{display:flex; align-items:center; gap:10px}
+.sym3 .ic{display:grid; place-items:center; width:30px; height:30px; border-radius:9px; flex-shrink:0}
+.sym3 .ic svg{width:17px; height:17px}
+/* 카드가 4개 이상이어도 3색이 순환한다 */
+.sym3 .card:nth-child(3n+1) .ic{color:var(--brand-blue); background:color-mix(in srgb, var(--brand-blue) 11%, var(--surface))}
+.sym3 .card:nth-child(3n+2) .ic{color:var(--brand-green); background:color-mix(in srgb, var(--brand-green) 11%, var(--surface))}
+.sym3 .card:nth-child(3n) .ic{color:var(--brand-orange); background:color-mix(in srgb, var(--brand-orange) 11%, var(--surface))}
 
 /* 인사말 시설장 사진 (어드민 등록) */
 .portrait{display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:var(--radius); box-shadow:var(--shadow)}
