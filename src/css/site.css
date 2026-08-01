@@ -17,7 +17,7 @@
   --shadow:0 1px 2px rgba(26,31,43,.05), 0 8px 24px -12px rgba(26,31,43,.20);
   --radius:10px;
   /* 웹폰트를 1순위로 — 기기별 설치 여부와 무관하게 전 기기 동일 렌더링 (base.njk 에서 로드) */
-  --font-display:"Noto Serif KR","Nanum Myeongjo","Source Han Serif K",
+  --font-display:"Nanum Myeongjo","Noto Serif KR","Source Han Serif K",
                  "KoPubWorld Batang","AppleMyungjo","Batang","바탕",serif;
   --font-body:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,
               "Apple SD Gothic Neo","Noto Sans KR","Spoqa Han Sans Neo","Malgun Gothic","맑은 고딕",sans-serif;
@@ -41,7 +41,11 @@ img,svg{max-width:100%}
 .skip:focus{left:8px; top:8px}
 
 /* ---------- header ---------- */
-header{position:sticky; top:0; z-index:100; background:var(--surface); border-bottom:1px solid var(--line)}
+header{position:sticky; top:0; z-index:100; background:var(--surface)}
+/* 심볼 3색 스트립 — 브랜드 시그니처. 로고 원색은 장식 전용(본문 텍스트 금지) */
+header::after{content:""; display:block; height:3px;
+  background:linear-gradient(90deg,
+    var(--brand-blue) 0 42%, var(--brand-green) 42% 84%, var(--brand-orange) 84% 100%)}
 
 .bar{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:74px}
 .brand{display:flex; align-items:center; text-decoration:none; flex-shrink:0}
@@ -127,6 +131,23 @@ p{margin:0}
 
 .card h3{font-size:1.14rem; margin-bottom:8px}
 .card p{color:var(--ink-2); font-size:.97rem}
+/* 심볼 3색 포인트 카드 (홈 3대 강점) — 색은 장식(상단 보더·아이콘)만, 글자색은 그대로 */
+.sym3 .card{border-top:4px solid var(--line)}
+.sym3 .card:nth-child(1){border-top-color:var(--brand-blue)}
+.sym3 .card:nth-child(2){border-top-color:var(--brand-green)}
+.sym3 .card:nth-child(3){border-top-color:var(--brand-orange)}
+.sym3 .ic{display:grid; place-items:center; width:46px; height:46px; border-radius:13px; margin-bottom:14px}
+.sym3 .ic svg{width:24px; height:24px}
+.sym3 .card:nth-child(1) .ic{color:var(--brand-blue); background:color-mix(in srgb, var(--brand-blue) 11%, var(--surface))}
+.sym3 .card:nth-child(2) .ic{color:var(--brand-green); background:color-mix(in srgb, var(--brand-green) 11%, var(--surface))}
+.sym3 .card:nth-child(3) .ic{color:var(--brand-orange); background:color-mix(in srgb, var(--brand-orange) 11%, var(--surface))}
+
+/* 인사말 시설장 사진 (어드민 등록) */
+.portrait{display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:var(--radius); box-shadow:var(--shadow)}
+
+/* facts 라벨·하단 전화바 아이콘 */
+.facts dt svg{width:15px; height:15px; vertical-align:-2px; margin-right:6px}
+.callbar a svg{width:17px; height:17px; vertical-align:-3px; margin-right:7px}
 
 ul.ticks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px}
 ul.ticks li{padding-left:29px; position:relative; color:var(--ink-2)}

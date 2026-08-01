@@ -51,6 +51,19 @@ collections:
             label: 소개 문장 (제목 아래 설명)
             widget: text
             hint: "두세 문장 이내를 권합니다."
+      - name: greeting
+        label: 인사말 페이지
+        file: src/_data/greeting.json
+        fields:
+          - name: photo
+            label: 시설장 사진
+            widget: image
+            required: false
+            hint: "세로형(3:4 비율 권장) 사진이 좋습니다. 파일 이름은 영문을 권합니다 (예: director.jpg)."
+          - name: photoAlt
+            label: 사진 설명 (화면낭독기용)
+            widget: string
+            required: false
 
   - name: notice
     label: 공지사항

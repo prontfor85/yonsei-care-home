@@ -10,7 +10,11 @@ grp: about
   <div class="wrap body">
     <div class="grid" style="grid-template-columns:minmax(0,1fr)">
       <div class="grid g2" style="align-items:start">
+        {%- if greeting.photo %}
+        <img class="portrait" src="{{ greeting.photo }}" alt="{{ greeting.photoAlt }}">
+        {%- else %}
         <div class="ph" style="aspect-ratio:3/4">시설장 사진<br>(준비 중)</div>
+        {%- endif %}
         <div class="prose">
           <p class="lead">연세노인전문요양원 홈페이지를 찾아주셔서 감사합니다.</p>
           <p>부모님을 요양원에 모시기로 결정하기까지, 얼마나 많은 밤을 고민하셨을지 저희는 압니다. 그 무거운 마음을 아는 것에서부터 저희의 일이 시작된다고 생각합니다.</p>
