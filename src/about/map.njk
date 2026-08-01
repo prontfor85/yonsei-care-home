@@ -9,7 +9,17 @@ grp: about
     <p>김제터미널에서 차로 약 15분 거리입니다.</p>
   </div></div>
   <div class="wrap body">
-    <div class="ph wide">네이버 지도 영역<br><small>실서비스 전환 시 지도 API 연동</small></div>
+    <div class="block">
+      {#- API 키 없이 쓰는 구글 임베드. 실제 길찾기는 아래 네이버/카카오 버튼이 담당 #}
+      <div class="mapembed">
+        <iframe src="https://maps.google.com/maps?q=%EC%A0%84%EB%B6%81%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B9%80%EC%A0%9C%EC%8B%9C%20%EC%9A%A9%EC%A7%80%EB%A9%B4%20%EC%9A%A9%EC%A7%801%EA%B8%B8%2018-4&z=15&hl=ko&output=embed"
+          title="연세노인전문요양원 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="btns">
+        <a class="btn" href="https://map.naver.com/v5/search/%EA%B9%80%EC%A0%9C%20%EC%97%B0%EC%84%B8%EB%85%B8%EC%9D%B8%EC%A0%84%EB%AC%B8%EC%9A%94%EC%96%91%EC%9B%90" target="_blank" rel="noopener">네이버지도에서 보기</a>
+        <a class="btn ghost" href="https://map.kakao.com/?q=%EA%B9%80%EC%A0%9C%20%EC%97%B0%EC%84%B8%EB%85%B8%EC%9D%B8%EC%A0%84%EB%AC%B8%EC%9A%94%EC%96%91%EC%9B%90" target="_blank" rel="noopener">카카오맵에서 보기</a>
+      </div>
+    </div>
 
     <div class="grid g2">
       <div class="card">
