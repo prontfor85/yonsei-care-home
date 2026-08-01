@@ -354,14 +354,16 @@ footer a:hover{color:var(--primary-strong); text-decoration:underline}
 .hero-scrim{position:absolute; inset:0}
 @media(max-width:899px){
   .hero-bg{object-position:center bottom}
-  /* facts 카드 제거로 히어로가 567px 로 낮아져 글자 끝 지점이 55% 로 내려왔다 — stop 도 같이 */
+  /* 히어로 총높이 약 700px 기준(2026-08-01 사용자 요청으로 567→700 확대).
+     글자가 끝나는 지점이 약 44% 라 stop 을 거기에 맞춘다. 사진 노출 영역을 바꾸면
+     (아래 padding-bottom) 이 stop 도 같이 볼 것. */
   .hero-scrim{background:linear-gradient(180deg,
     var(--surface-2) 0%,
-    color-mix(in srgb, var(--surface-2) 94%, transparent) 55%,
-    color-mix(in srgb, var(--surface-2) 50%, transparent) 76%,
-    transparent 96%)}
-  /* CTA 아래로 사진이 온전히 드러나는 영역을 확보한다 */
-  .hero.has-bg .herogrid{padding-bottom:220px}
+    color-mix(in srgb, var(--surface-2) 94%, transparent) 45%,
+    color-mix(in srgb, var(--surface-2) 50%, transparent) 70%,
+    transparent 95%)}
+  /* 글 아래로 사진이 온전히 드러나는 영역 — 이 값이 모바일 히어로 높이를 결정한다 */
+  .hero.has-bg .herogrid{padding-bottom:355px}
 }
 @media(min-width:900px){
   .hero-bg{object-position:72% center}
